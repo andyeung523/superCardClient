@@ -163,7 +163,7 @@ class LoginScreen extends StatelessWidget {
           context,
           PageTransition(
             type: PageTransitionType.fade,
-            child: main_page(),
+            child: Main_page(),
           ),
         );
       },
