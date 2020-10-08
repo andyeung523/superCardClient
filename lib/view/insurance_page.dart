@@ -11,7 +11,7 @@ class _InsurancePageState extends State<InsurancePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('home page'),
+      child: Text('InsurancePage'),
     );
   }
 }
