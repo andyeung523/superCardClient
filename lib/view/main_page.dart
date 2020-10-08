@@ -6,7 +6,8 @@ import 'package:super_card_client/view/explore_page.dart';
 
 /// This is the main application widget.
 class Main_page extends StatelessWidget {
-  static const String _title = 'super_card_client';
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,13 +28,12 @@ class MyStatefulWidget extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    Home_page(),
-    Insurance_page(),
-    Explore_page(),
-    Account_page(),
+    // Hero(tag: '', child: null),
+    HomePage(),
+    InsurancePage(),
+    ExplorePage(),
+    AccountPage(),
   ];
 
   void _onItemTapped(int index) {

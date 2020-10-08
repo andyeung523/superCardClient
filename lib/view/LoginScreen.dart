@@ -5,6 +5,10 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:page_transition/page_transition.dart';
 import 'package:super_card_client/view/main_page.dart';
 import 'package:super_card_client/data/users.dart';
+import 'package:super_card_client/view/account_page.dart';
+import 'package:super_card_client/view/insurance_page.dart';
+import 'package:super_card_client/view/home_page.dart';
+import 'package:super_card_client/view/explore_page.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/auth';
@@ -163,7 +167,7 @@ class LoginScreen extends StatelessWidget {
           context,
           PageTransition(
             type: PageTransitionType.fade,
-            child: Main_page(),
+            child: HomePage(),
           ),
         );
       },

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_card_client/view/account_page.dart';
+import 'package:super_card_client/view/insurance_page.dart';
+import 'package:super_card_client/view/home_page.dart';
+import 'package:super_card_client/view/explore_page.dart';
 
+import 'package:super_card_client/view/main_page.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:super_card_client/view/LoginScreen.dart';
 
@@ -21,7 +26,7 @@ class MyApp extends StatelessWidget {
             Theme.of(context).textTheme.apply(bodyColor: Constants.kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: Main_page(),
     );
   }
 }

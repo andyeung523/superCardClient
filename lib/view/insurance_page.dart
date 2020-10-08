@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Insurance_page extends StatefulWidget {
-  Insurance_page({Key key}) : super(key: key);
+class InsurancePage extends StatefulWidget {
+  InsurancePage({Key key}) : super(key: key);
 
   @override
-  _Insurance_pageState createState() => _Insurance_pageState();
+  _InsurancePageState createState() => _InsurancePageState();
 }
 
-class _Insurance_pageState extends State<Insurance_page> {
+class _InsurancePageState extends State<InsurancePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('insurance'),
+      child: Text('home page'),
     );
   }
 }

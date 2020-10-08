@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Account_page extends StatefulWidget {
-  Account_page({Key key}) : super(key: key);
+class AccountPage extends StatefulWidget {
+  AccountPage({Key key}) : super(key: key);
 
   @override
-  _Account_pageState createState() => _Account_pageState();
+  _AccountPageState createState() => _AccountPageState();
 }
 
-class _Account_pageState extends State<Account_page> {
+class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Account'),
-    );
+    return Container(child: Text('Account'));
   }
 }

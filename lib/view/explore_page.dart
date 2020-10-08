@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Explore_page extends StatefulWidget {
-  Explore_page({Key key}) : super(key: key);
+class ExplorePage extends StatefulWidget {
+  ExplorePage({Key key}) : super(key: key);
 
   @override
-  _Explore_pageState createState() => _Explore_pageState();
+  _ExplorePageState createState() => _ExplorePageState();
 }
 
-class _Explore_pageState extends State<Explore_page> {
+class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("explore"),
+      child: Text('home page'),
     );
   }
 }
