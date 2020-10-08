@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_card_client/constants.dart';
 import 'package:super_card_client/view/account_page.dart';
 import 'package:super_card_client/view/insurance_page.dart';
 import 'package:super_card_client/view/home_page.dart';
@@ -68,7 +69,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        backgroundColor: Constants.kBackgroundColor,
+        unselectedItemColor: Constants.kPrimaryColor,
+        selectedItemColor: Constants.kSecondaryColor,
         onTap: _onItemTapped,
       ),
     );
