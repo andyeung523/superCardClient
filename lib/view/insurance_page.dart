@@ -10,8 +10,15 @@ class InsurancePage extends StatefulWidget {
 class _InsurancePageState extends State<InsurancePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('InsurancePage'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Insurance',
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Text('InsurancePage'),
     );
   }
 }
