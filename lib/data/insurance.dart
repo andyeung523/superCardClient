@@ -1,10 +1,9 @@
-class InsuranceData {
+class Insurance {
+  final int id;
   String name;
   int price;
   String dueData;
   String des;
-  bool isSubed;
-  InsuranceData(this.name, this.price, this.dueData, this.des, this.isSubed);
-
-  List<Object> get props => [name, price, dueData, des, isSubed];
+  Insurance(this.id, this.name, this.price, this.dueData, this.des);
+  Insurance.clone(Insurance o) : this(o.id, o.name, o.price, o.dueData, o.des);
 }
