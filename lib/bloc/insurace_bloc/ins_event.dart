@@ -9,6 +9,6 @@ class ToggleSub extends InsuranceEvent {
   ToggleSub(this.iid);
 }
 
-class InsuraceLoaded extends InsuranceEvent {}
-
-class InsuraceError extends InsuranceEvent {}
+class RefreashInsurace extends InsuranceEvent {
+  RefreashInsurace();
+}

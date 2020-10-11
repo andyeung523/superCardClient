@@ -9,8 +9,12 @@ class InsuranceInitial extends InsuranceState {
   const InsuranceInitial();
 }
 
+class InsuranceLoading extends InsuranceState {
+  const InsuranceLoading();
+}
+
 class InsuraceLoaded extends InsuranceState {
-  final List<int> list;
+  final List<List<Insurance>> list;
   const InsuraceLoaded(this.list);
 
   @override

@@ -9,4 +9,18 @@ class InsuranceData {
     Insurance(2, 'cins', 90, ' dueData', 'des'),
     Insurance(3, 'dins', 90, ' dueData', 'des'),
   ];
+
+  List<List<Insurance>> subOrNotList(List<int> subedList) {
+    List<Insurance> tmpSubedList = [];
+    List<Insurance> tmpNotSubedList = [];
+
+    for (int i = 0; i < list.length; ++i) {
+      if (subedList.contains(i)) {
+        tmpSubedList.add(list[i]);
+      } else {
+        tmpNotSubedList.add(list[i]);
+      }
+    }
+    return [tmpSubedList, tmpNotSubedList];
+  }
 }
