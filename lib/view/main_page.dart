@@ -6,7 +6,7 @@ import 'package:super_card_client/view/home_page.dart';
 import 'package:super_card_client/view/explore_page.dart';
 
 /// This is the main application widget.
-class Main_page extends StatelessWidget {
+class MainPage extends StatelessWidget {
   static const String _title = 'Flutter Code Sample';
 
   @override

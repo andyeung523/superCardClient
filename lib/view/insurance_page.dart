@@ -29,24 +29,45 @@ class _InsurancePageState extends State<InsurancePage> {
         ),
         centerTitle: true,
         elevation: 0.0,
+        backgroundColor: Constants.kPrimaryColor,
       ),
-      body: Stack(
-        alignment: Alignment.topCenter,
+      body: Column(
         children: [
-          BlocConsumer<InsuranceBloc, InsuranceState>(
-            listener: (context, state) {
-              if (state is InsuraceError)
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text(state.message)));
-            },
-            builder: (context, state) {
-              if (state is InsuranceInitial) return buildInitial(context);
-              if (state is InsuranceLoading) return buildLoading();
-              if (state is InsuraceLoaded)
-                return subedBuildLoaded(state.list[0]);
-              else
-                return buildInitial(context);
-            },
+          Text('My insurance'),
+          Container(
+            child: BlocConsumer<InsuranceBloc, InsuranceState>(
+              listener: (context, state) {
+                if (state is InsuraceError)
+                  Scaffold.of(context)
+                      .showSnackBar(SnackBar(content: Text(state.message)));
+              },
+              builder: (context, state) {
+                if (state is InsuranceInitial) return buildInitial(context);
+                if (state is InsuranceLoading) return buildLoading();
+                if (state is InsuraceLoaded)
+                  return subedBuildLoaded(state.list[0]);
+                else
+                  return buildInitial(context);
+              },
+            ),
+          ),
+          Text('Insurance list'),
+          Container(
+            child: BlocConsumer<InsuranceBloc, InsuranceState>(
+              listener: (context, state) {
+                if (state is InsuraceError)
+                  Scaffold.of(context)
+                      .showSnackBar(SnackBar(content: Text(state.message)));
+              },
+              builder: (context, state) {
+                if (state is InsuranceInitial) return buildInitial(context);
+                if (state is InsuranceLoading) return buildLoading();
+                if (state is InsuraceLoaded)
+                  return subedBuildLoaded(state.list[1]);
+                else
+                  return buildInitial(context);
+              },
+            ),
           ),
         ],
       ),
@@ -74,6 +95,8 @@ class _InsurancePageState extends State<InsurancePage> {
   Widget buildLoading() => Center(child: CircularProgressIndicator());
 
   Widget subedBuildLoaded(List<Insurance> list) => ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         itemCount: list.length,
         itemBuilder: (ctx, i) => InsuranceSubedCard(data: list[i]),
       );

@@ -2,9 +2,9 @@ class Insurance {
   final int id;
   String name;
   int price;
-  String dueData;
+  String dueDate;
   String des;
 
-  Insurance(this.id, this.name, this.price, this.dueData, this.des);
-  Insurance.clone(Insurance o) : this(o.id, o.name, o.price, o.dueData, o.des);
+  Insurance(this.id, this.name, this.price, this.dueDate, this.des);
+  Insurance.clone(Insurance o) : this(o.id, o.name, o.price, o.dueDate, o.des);
 }
