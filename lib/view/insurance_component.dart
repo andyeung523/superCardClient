@@ -26,17 +26,57 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
       decoration: BoxDecoration(
           color: Constants.kPrimaryColor,
           borderRadius: BorderRadius.all(Radius.circular(25))),
-      child: Column(
-        children: [
-          Text(
-            widget.data.name,
-            style: GoogleFonts.lato(
-              textStyle: TextStyle(color: Colors.black, letterSpacing: .5),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Flex(
+              direction: Axis.horizontal,
+              children: [
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: [
+                        Text(
+                          widget.data.name,
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontSize: 30.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Due date: ' + widget.data.dueDate,
+                          style: GoogleFonts.lato(
+                            textStyle:
+                                TextStyle(fontSize: 20.0, color: Colors.black),
+                          ),
+                        ),
+                        Text(
+                          ' Price: ' + widget.data.price.toString(),
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                    flex: 2,
+                    child: RaisedButton(
+                      color: Colors.teal[100],
+                      onPressed: () {},
+                      child: const Text('PAY', style: TextStyle(fontSize: 20)),
+                    ))
+              ],
             ),
-          ),
-          Text(widget.data.dueDate),
-          Text(widget.data.price.toString()),
-        ],
+          ],
+        ),
       ),
     );
   }

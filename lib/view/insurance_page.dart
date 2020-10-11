@@ -31,11 +31,13 @@ class _InsurancePageState extends State<InsurancePage> {
         elevation: 0.0,
         backgroundColor: Constants.kPrimaryColor,
       ),
-      body: Column(
-        children: [
-          Text('My insurance'),
-          Container(
-            child: BlocConsumer<InsuranceBloc, InsuranceState>(
+      body: SingleChildScrollView(
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          children: [
+            Text('My insurance'),
+            BlocConsumer<InsuranceBloc, InsuranceState>(
               listener: (context, state) {
                 if (state is InsuraceError)
                   Scaffold.of(context)
@@ -50,10 +52,8 @@ class _InsurancePageState extends State<InsurancePage> {
                   return buildInitial(context);
               },
             ),
-          ),
-          Text('Insurance list'),
-          Container(
-            child: BlocConsumer<InsuranceBloc, InsuranceState>(
+            Text('Insurance list'),
+            BlocConsumer<InsuranceBloc, InsuranceState>(
               listener: (context, state) {
                 if (state is InsuraceError)
                   Scaffold.of(context)
@@ -68,8 +68,8 @@ class _InsurancePageState extends State<InsurancePage> {
                   return buildInitial(context);
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
