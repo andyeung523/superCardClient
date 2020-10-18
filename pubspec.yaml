@@ -29,7 +29,7 @@ dependencies:
   google_fonts: ^1.1.0
   flutter_login: ^1.0.14
   page_transition: ^1.1.6
-  
+  material_design_icons_flutter: 4.0.5755
 
 
   # The following adds the Cupertino Icons font to your application.
