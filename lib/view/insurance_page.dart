@@ -63,7 +63,7 @@ class _InsurancePageState extends State<InsurancePage> {
               if (state is InsuranceInitial) return buildInitial(context);
               if (state is InsuranceLoading) return buildLoading();
               if (state is InsuraceLoaded)
-                return subedBuildLoaded(state.list[1]);
+                return noSubedBuildLoaded(state.list[1]);
               else
                 return buildInitial(context);
             },
@@ -103,4 +103,11 @@ class _InsurancePageState extends State<InsurancePage> {
   void refreshList(BuildContext context) {
     BlocProvider.of<InsuranceBloc>(context).add(RefreashInsurace());
   }
+
+  Widget noSubedBuildLoaded(List<Insurance> list) => ListView.builder(
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
+        itemCount: list.length,
+        itemBuilder: (ctx, i) => InsuranceNoSubedCard(data: list[i]),
+      );
 }
