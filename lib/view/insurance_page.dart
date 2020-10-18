@@ -31,45 +31,44 @@ class _InsurancePageState extends State<InsurancePage> {
         elevation: 0.0,
         backgroundColor: Constants.kPrimaryColor,
       ),
-      body: SingleChildScrollView(
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          children: [
-            Text('My insurance'),
-            BlocConsumer<InsuranceBloc, InsuranceState>(
-              listener: (context, state) {
-                if (state is InsuraceError)
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text(state.message)));
-              },
-              builder: (context, state) {
-                if (state is InsuranceInitial) return buildInitial(context);
-                if (state is InsuranceLoading) return buildLoading();
-                if (state is InsuraceLoaded)
-                  return subedBuildLoaded(state.list[0]);
-                else
-                  return buildInitial(context);
-              },
-            ),
-            Text('Insurance list'),
-            BlocConsumer<InsuranceBloc, InsuranceState>(
-              listener: (context, state) {
-                if (state is InsuraceError)
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text(state.message)));
-              },
-              builder: (context, state) {
-                if (state is InsuranceInitial) return buildInitial(context);
-                if (state is InsuranceLoading) return buildLoading();
-                if (state is InsuraceLoaded)
-                  return subedBuildLoaded(state.list[1]);
-                else
-                  return buildInitial(context);
-              },
-            ),
-          ],
-        ),
+      body: ListView(
+        padding: EdgeInsets.all(8.0),
+        physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics()),
+        children: [
+          Text('My insurance'),
+          BlocConsumer<InsuranceBloc, InsuranceState>(
+            listener: (context, state) {
+              if (state is InsuraceError)
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text(state.message)));
+            },
+            builder: (context, state) {
+              if (state is InsuranceInitial) return buildInitial(context);
+              if (state is InsuranceLoading) return buildLoading();
+              if (state is InsuraceLoaded)
+                return subedBuildLoaded(state.list[0]);
+              else
+                return buildInitial(context);
+            },
+          ),
+          Text('Insurance list'),
+          BlocConsumer<InsuranceBloc, InsuranceState>(
+            listener: (context, state) {
+              if (state is InsuraceError)
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text(state.message)));
+            },
+            builder: (context, state) {
+              if (state is InsuranceInitial) return buildInitial(context);
+              if (state is InsuranceLoading) return buildLoading();
+              if (state is InsuraceLoaded)
+                return subedBuildLoaded(state.list[1]);
+              else
+                return buildInitial(context);
+            },
+          ),
+        ],
       ),
     );
   }
@@ -95,8 +94,8 @@ class _InsurancePageState extends State<InsurancePage> {
   Widget buildLoading() => Center(child: CircularProgressIndicator());
 
   Widget subedBuildLoaded(List<Insurance> list) => ListView.builder(
-        scrollDirection: Axis.vertical,
         shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
         itemCount: list.length,
         itemBuilder: (ctx, i) => InsuranceSubedCard(data: list[i]),
       );
