@@ -4,6 +4,7 @@ class InsuranceData {
   InsuranceData();
 
   List<Insurance> list = [
+    //id(unique, name, price, due date, description)
     Insurance(0, 'vhis', 90, ' 10/10/2020', 'des'),
     Insurance(1, 'bins', 90, ' 10/10/2020', 'des'),
     Insurance(2, 'cins', 90, ' 10/10/2020', 'des'),

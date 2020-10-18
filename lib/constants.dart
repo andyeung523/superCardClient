@@ -20,3 +20,7 @@ class Constants {
   static const kLargePadding = 32.0;
   static const kSmallPadding = 12.0;
 }
+
+class UserData {
+  static int dollar = 500;
+}

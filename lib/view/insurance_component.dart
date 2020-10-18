@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:super_card_client/bloc/insurace_bloc/ins_bloc.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:super_card_client/data/insurance.dart';
@@ -19,6 +20,8 @@ class InsuranceSubedCard extends StatefulWidget {
 }
 
 class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
+  bool showHD = true;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,8 +74,14 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                   flex: 2,
                   child: RaisedButton(
                     color: Colors.teal[100],
-                    onPressed: () {},
-                    child: const Text('PAY', style: TextStyle(fontSize: 20)),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return PayPopUp(price: widget.data.price);
+                          });
+                    },
+                    child: const Text('PAY', style: TextStyle(fontSize: 15)),
                   ))
             ],
           ),
@@ -128,5 +137,153 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
 
   void toggleSub(BuildContext context, int iid) {
     BlocProvider.of<InsuranceBloc>(context).add(ToggleSub(iid));
+  }
+}
+
+class PayPopUp extends StatefulWidget {
+  PayPopUp({Key key, this.price}) : super(key: key);
+  final int price;
+  @override
+  _PayPopUpState createState() => _PayPopUpState();
+}
+
+class _PayPopUpState extends State<PayPopUp> {
+  bool showHD = true;
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+        content: Stack(overflow: Overflow.visible, children: <Widget>[
+      Positioned(
+        right: -40.0,
+        top: -40.0,
+        child: InkResponse(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: CircleAvatar(
+            child: Icon(Icons.close),
+            backgroundColor: Colors.red,
+          ),
+        ),
+      ),
+      FractionallySizedBox(
+        heightFactor: 0.3,
+        child: Center(
+          child: Container(
+            padding: EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        MdiIcons.heartCircleOutline,
+                        size: 30,
+                      ),
+                      Text(
+                        UserData.dollar.toString(),
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Premium Outstanding',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        '\$' + widget.price.toString(),
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  if (showHD)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          '-' +
+                              (UserData.dollar > widget.price / 0.05
+                                      ? widget.price / 0.05
+                                      : UserData.dollar)
+                                  .toString() +
+                              '(Health Dollar) x 5% = ' +
+                              (UserData.dollar > widget.price / 0.05
+                                      ? widget.price
+                                      : UserData.dollar * 0.05)
+                                  .toString(),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  if (showHD)
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Divider(
+                          color: Constants.kSecondaryColor,
+                        ))
+                      ],
+                    ),
+                  if (showHD)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          '\$' +
+                              (UserData.dollar > widget.price / 0.05
+                                      ? 0
+                                      : widget.price - UserData.dollar * 0.05)
+                                  .toString(),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: RaisedButton(
+                              onPressed: () {
+                                setState(() => {showHD = true});
+                              },
+                              child: Text('Health Dollar'),
+                            ),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: RaisedButton(
+                              onPressed: () {
+                                setState(() => {showHD = false});
+                              },
+                              child: Text('Cash'),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      )
+    ]));
   }
 }
