@@ -16,7 +16,7 @@ class _transactionState extends State<transaction> {
         title: Text("Second Route"),
       ),
       body: Center(
-        child: ElevatedButton(
+        child: RawMaterialButton(
           onPressed: () {
             Navigator.pop(context);
           },
