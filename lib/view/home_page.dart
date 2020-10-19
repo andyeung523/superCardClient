@@ -42,10 +42,12 @@ class _HomePageState extends State<HomePage> {
         SizedBox(height: 10),
         Center(
           child: Container(
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
             //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
             constraints:
                 BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
             decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
                 //背景装饰
                 gradient: LinearGradient(
                   //背景径向渐变
