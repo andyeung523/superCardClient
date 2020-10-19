@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:super_card_client/view/Home_subPage/cash_back.dart';
 import 'dart:ui' as ui;
 
 import 'package:super_card_client/view/Home_subPage/transaction_page.dart';
@@ -105,7 +106,12 @@ class _HomePageState extends State<HomePage> {
                     width: 10,
                   ),
                   RawMaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => cash_back()),
+                      );
+                    },
                     elevation: 2.0,
                     fillColor: Constants.kPrimaryColor,
                     // child: Icon(
