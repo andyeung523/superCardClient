@@ -29,7 +29,11 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
           Constants.kLargePadding, Constants.kLargePadding, 0),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
-          color: Constants.kPrimaryColor,
+          gradient: LinearGradient(
+            colors: [Colors.green, Colors.green[200]],
+            //center: Alignment.centerLeft,
+            //radius: .98
+          ),
           borderRadius: BorderRadius.all(Radius.circular(25))),
       child: Column(
         children: [
@@ -42,29 +46,42 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                   alignment: Alignment.centerLeft,
                   child: Column(
                     children: [
-                      Text(
-                        widget.data.name,
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            fontSize: 30.0,
-                            color: Colors.black,
+                      Row(
+                        children: [
+                          Text(
+                            widget.data.name,
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.greenAccent[250],
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                      Text(
-                        'Due date: ' + widget.data.dueDate,
-                        style: GoogleFonts.lato(
-                          textStyle:
-                              TextStyle(fontSize: 20.0, color: Colors.black),
-                        ),
-                      ),
-                      Text(
-                        ' Price: ' + widget.data.price.toString(),
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            color: Colors.black,
+                      Row(
+                        children: [
+                          Text(
+                            'Due date: ' + widget.data.dueDate,
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 15.0, color: Colors.white),
+                            ),
                           ),
-                        ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Price: ' + widget.data.price.toString(),
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -73,7 +90,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
               Expanded(
                   flex: 2,
                   child: RaisedButton(
-                    color: Colors.teal[100],
+                    color: Constants.kPrimaryColor,
                     onPressed: () {
                       showDialog(
                           context: context,
@@ -81,7 +98,10 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                             return PayPopUp(price: widget.data.price);
                           });
                     },
-                    child: const Text('PAY', style: TextStyle(fontSize: 15)),
+                    child: const Text('PAY',
+                        style: TextStyle(
+                          fontSize: 15,
+                        )),
                   ))
             ],
           ),
@@ -167,12 +187,13 @@ class _PayPopUpState extends State<PayPopUp> {
         ),
       ),
       FractionallySizedBox(
-        heightFactor: 0.3,
+        heightFactor: 0.4,
         child: Center(
           child: Container(
             padding: EdgeInsets.all(8.0),
             child: SingleChildScrollView(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -180,10 +201,13 @@ class _PayPopUpState extends State<PayPopUp> {
                       Icon(
                         MdiIcons.heartCircleOutline,
                         size: 30,
+                        color: Constants.kPrimaryColor,
                       ),
                       Text(
                         UserData.dollar.toString(),
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                          color: Constants.kPrimaryColor,
+                        ),
                       ),
                     ],
                   ),
@@ -201,7 +225,10 @@ class _PayPopUpState extends State<PayPopUp> {
                     children: [
                       Text(
                         '\$' + widget.price.toString(),
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                            color: showHD
+                                ? Colors.black
+                                : Constants.kPrimaryColor),
                       ),
                     ],
                   ),
@@ -243,7 +270,7 @@ class _PayPopUpState extends State<PayPopUp> {
                                       ? 0
                                       : widget.price - UserData.dollar * 0.05)
                                   .toString(),
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Constants.kPrimaryColor),
                         ),
                       ],
                     ),
@@ -258,7 +285,8 @@ class _PayPopUpState extends State<PayPopUp> {
                               onPressed: () {
                                 setState(() => {showHD = true});
                               },
-                              child: Text('Health Dollar'),
+                              child: Text('Health Dollar',
+                                  style: TextStyle(fontSize: 11)),
                             ),
                           )
                         ],
@@ -277,6 +305,25 @@ class _PayPopUpState extends State<PayPopUp> {
                         ],
                       )
                     ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: RaisedButton(
+                          color: Constants.kPrimaryColor,
+                          onPressed: () {
+                            updateHD(UserData.dollar > widget.price / 0.05
+                                ? widget.price / 0.05
+                                : UserData.dollar);
+                            setState(() => {});
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('PAY'),
+                        ),
+                      )
+                    ],
                   )
                 ],
               ),
@@ -286,4 +333,8 @@ class _PayPopUpState extends State<PayPopUp> {
       )
     ]));
   }
+
+  void updateHD(int hd) => {
+        {UserData.dollar = (UserData.dollar - hd)}
+      };
 }
