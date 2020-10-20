@@ -30,7 +30,7 @@ class _cash_backState extends State<cash_back> {
             style: TextStyle(
               color: Colors.black87,
               fontSize: 18,
-              textAlign: Alignment.center,
+              // ali: Alignment.center,
             ),
           ),
           Center(
