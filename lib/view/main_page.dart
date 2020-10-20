@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(
-        // Define the default brightness and colors.
+          // Define the default brightness and colors.
           scaffoldBackgroundColor: Constants.kBackgroundColor,
           primaryColor: Constants.kPrimaryColor,
           accentColor: Constants.kSecondaryColor,
@@ -22,11 +22,13 @@ class MainPage extends StatelessWidget {
               bodyText1: TextStyle(color: Constants.kTextColor),
               headline5: TextStyle(color: Constants.kTextColor),
               headline4: TextStyle(color: Constants.kTextColor),
-              caption: TextStyle(color: Constants.kTextColor,fontSize: 15),
-              button: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
-              headline1: TextStyle(fontSize: 30, color: Constants.kTextColor, fontWeight: FontWeight.bold)
-          )
-      ),
+              caption: TextStyle(color: Constants.kTextColor, fontSize: 15),
+              button:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+              headline1: TextStyle(
+                  fontSize: 30,
+                  color: Constants.kTextColor,
+                  fontWeight: FontWeight.bold))),
       home: MyStatefulWidget(),
     );
   }

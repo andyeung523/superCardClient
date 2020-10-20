@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:super_card_client/constants.dart';
+import 'package:super_card_client/view/main_page.dart';
+import 'dart:developer';
 
 class PayPopUp extends StatefulWidget {
   PayPopUp({Key key, this.price}) : super(key: key);
@@ -10,6 +12,7 @@ class PayPopUp extends StatefulWidget {
 }
 
 class _PayPopUpState extends State<PayPopUp> {
+  _getRequests() async {}
   bool showHD = true;
   @override
   Widget build(BuildContext context) {
@@ -179,7 +182,14 @@ class _PayPopUpState extends State<PayPopUp> {
   void updateHD(int hd) => {
         if (showHD)
           {
-            {UserData.dollar = (UserData.dollar - hd)}
+            {
+              UserData.dollar = (UserData.dollar - hd),
+              UserData.accountBalance -= (widget.price - hd * 0.05).round(),
+            }
+          }
+        else
+          {
+            {UserData.accountBalance = (UserData.accountBalance - widget.price)}
           }
       };
 }

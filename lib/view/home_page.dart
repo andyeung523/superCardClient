@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.left,
               ),
               Text(
-                'HKD 11,500',
+                UserData.accountBalance.toString(),
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
@@ -94,7 +94,6 @@ class _HomePageState extends State<HomePage> {
                     MdiIcons.heartCircleOutline,
                     size: 50,
                     color: Constants.kPrimaryColor,
-
                   ),
                   SizedBox(
                     width: 10,
@@ -163,7 +162,8 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Add Money",
+                        Text(
+                          "Add Money",
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],
@@ -185,7 +185,8 @@ class _HomePageState extends State<HomePage> {
                         splashColor: Colors.black,
                       ),
                       SizedBox(height: 5),
-                      Text("Transfer",
+                      Text(
+                        "Transfer",
                         style: Theme.of(context).textTheme.caption,
                       )
                     ],
@@ -207,7 +208,8 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Loan",
+                        Text(
+                          "Loan",
                           style: Theme.of(context).textTheme.caption,
                         )
                       ],
@@ -237,7 +239,8 @@ class _HomePageState extends State<HomePage> {
                           //highlightColor: Colors.green[200],
                         ),
                         SizedBox(height: 5),
-                        Text("Transaction",
+                        Text(
+                          "Transaction",
                           style: Theme.of(context).textTheme.caption,
                         )
                       ],
