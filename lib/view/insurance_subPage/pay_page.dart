@@ -90,7 +90,8 @@ class _PayPopUpState extends State<PayPopUp> {
                               '(Health Dollar) x 5% = ' +
                               (UserData.dollar > widget.price / 0.05
                                       ? widget.price
-                                      : UserData.dollar * 0.05)
+                                      : (UserData.dollar * 0.05)
+                                          .roundToDouble())
                                   .toString(),
                           style: TextStyle(color: Colors.black),
                         ),
