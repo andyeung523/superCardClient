@@ -11,15 +11,15 @@ class cash_back extends StatefulWidget {
 }
 
 class _cash_backState extends State<cash_back> {
-  // int initDollar = UserData.dollar;
-
-  // @override
-  // void _updateLabels(int end) {
-  //   setState(() {
-  //     initDollar = end;
-  //     // outBedTime = end;
-  //   });
-  // }
+  int initDollar = UserData.dollar;
+  int posDollar = 1;
+  int posDollar2show = 1;
+  void _updateLabels(int toChange, int end, int asd) {
+    setState(() {
+      posDollar = toChange;
+      // outBedTime = end;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +49,17 @@ class _cash_backState extends State<cash_back> {
             children: [
               Center(
                   child: Text(
-                UserData.dollar.toString(),
+                posDollar.toString(),
                 style: TextStyle(fontSize: 40, color: Colors.black87),
               )),
               SingleCircularSlider(
                 300,
-                50,
+                (posDollar * UserData.dollar / 300) as int,
                 baseColor: Colors.green[200],
                 selectionColor: Constants.kPrimaryColor,
                 handlerColor: Colors.black,
                 showRoundedCapInSelection: false,
+                onSelectionChange: _updateLabels,
                 // onSelectionChange: _updateLabels,
               ),
             ],
