@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
           height: 25,
@@ -101,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                     width: 10,
                   ),
                   Text(
-                    '500',
+                    UserData.dollar.toString(),
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left,
                   ),
