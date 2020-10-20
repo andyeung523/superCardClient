@@ -55,6 +55,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/superCard_log_1.png
+    - assets/images/sc_card_g.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -42,28 +42,29 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 10),
         Center(
-          child: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
-            constraints:
-                BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                //背景装饰
-                gradient: LinearGradient(
-                  //背景径向渐变
-                  colors: [Colors.green, Colors.green[300]],
-                  //center: Alignment.centerLeft,
-                  //radius: .98
-                ),
-                boxShadow: [
-                  //卡片阴影
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(2.0, 2.0),
-                      blurRadius: 4.0)
-                ]),
-          ),
+          child: Image.asset('assets/images/sc_card_g.png'),
+          // Container(
+          //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          //   //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
+          //   constraints:
+          //       BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
+          //   decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.all(Radius.circular(12)),
+          //       //背景装饰
+          //       gradient: LinearGradient(
+          //         //背景径向渐变
+          //         colors: [Colors.green, Colors.green[300]],
+          //         //center: Alignment.centerLeft,
+          //         //radius: .98
+          //       ),
+          //       boxShadow: [
+          //         //卡片阴影
+          //         BoxShadow(
+          //             color: Colors.black54,
+          //             offset: Offset(2.0, 2.0),
+          //             blurRadius: 4.0)
+          //       ]),
+          // ),
         ),
         SizedBox(height: 15),
         Container(
@@ -94,7 +95,6 @@ class _HomePageState extends State<HomePage> {
                     MdiIcons.heartCircleOutline,
                     size: 50,
                     color: Constants.kPrimaryColor,
-
                   ),
                   SizedBox(
                     width: 10,
@@ -163,7 +163,8 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Add Money",
+                        Text(
+                          "Add Money",
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],
@@ -185,7 +186,8 @@ class _HomePageState extends State<HomePage> {
                         splashColor: Colors.black,
                       ),
                       SizedBox(height: 5),
-                      Text("Transfer",
+                      Text(
+                        "Transfer",
                         style: Theme.of(context).textTheme.caption,
                       )
                     ],
@@ -207,7 +209,8 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Loan",
+                        Text(
+                          "Loan",
                           style: Theme.of(context).textTheme.caption,
                         )
                       ],
@@ -237,7 +240,8 @@ class _HomePageState extends State<HomePage> {
                           //highlightColor: Colors.green[200],
                         ),
                         SizedBox(height: 5),
-                        Text("Transaction",
+                        Text(
+                          "Transaction",
                           style: Theme.of(context).textTheme.caption,
                         )
                       ],
