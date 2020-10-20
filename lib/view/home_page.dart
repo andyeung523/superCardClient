@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
             size: 30.0,
           ),
         ),
-
         Container(
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           //color: Colors.grey,
@@ -43,7 +42,6 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 10),
         Center(
-<<<<<<< HEAD
           child: Image.asset('assets/images/sc_card_g.png'),
           // Container(
           //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -67,30 +65,6 @@ class _HomePageState extends State<HomePage> {
           //             blurRadius: 4.0)
           //       ]),
           // ),
-=======
-          child: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            // margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
-            constraints:
-                BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                //背景装饰
-                gradient: LinearGradient(
-                  //背景径向渐变
-                  colors: [Colors.green, Colors.green[300]],
-                  //center: Alignment.centerLeft,
-                  //radius: .98
-                ),
-                boxShadow: [
-                  //卡片阴影
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(2.0, 2.0),
-                      blurRadius: 4.0)
-                ]),
-          ),
->>>>>>> 3d6c0a24bfdfaf4cc8cc712dc7f2cf6a41fed218
         ),
         SizedBox(height: 15),
         Container(
@@ -110,15 +84,14 @@ class _HomePageState extends State<HomePage> {
                   style: Theme.of(context).textTheme.caption,
                   children: <InlineSpan>[
                     WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        // baseline: TextBaseline.alphabetic,
-                        child:               Text(
-                          '11,500',
-                          style: Theme.of(context).textTheme.headline4,
-                          textAlign: TextAlign.left,
-                        ),
-                        ),
-
+                      alignment: PlaceholderAlignment.middle,
+                      // baseline: TextBaseline.alphabetic,
+                      child: Text(
+                        '11,500',
+                        style: Theme.of(context).textTheme.headline4,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -176,7 +149,6 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           height: 30,
         ),
-
         Center(
           child: Container(
             //color: Colors.amber,
