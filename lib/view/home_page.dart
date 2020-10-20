@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
-          height: 20,
+          height: 25,
         ),
         Align(
           alignment: Alignment.centerRight,
@@ -32,11 +32,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Container(
-          padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           //color: Colors.grey,
           child: Text(
             'Hi, Cyber Youngsters',
-            style: TextStyle(fontSize: 30, color: Colors.black),
+            style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.left,
           ),
         ),
@@ -74,32 +74,34 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 'Account Balance',
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.left,
               ),
               Text(
                 'HKD 11,500',
-                style: TextStyle(fontSize: 30, color: Colors.black),
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Text(
                 'Health Dollar',
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.left,
               ),
               Row(
                 children: [
                   Icon(
                     MdiIcons.heartCircleOutline,
-                    size: 30,
+                    size: 50,
+                    color: Constants.kPrimaryColor,
+
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Text(
                     UserData.dollar.toString(),
-                    style: TextStyle(fontSize: 30, color: Colors.black),
+                    style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(
@@ -121,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                     // ),
                     child: Text(
                       "Cash Back",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: Theme.of(context).textTheme.button,
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -133,7 +135,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: 15,
+          height: 30,
         ),
         Center(
           child: Container(
@@ -161,7 +163,9 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Add Money"),
+                        Text("Add Money",
+                          style: Theme.of(context).textTheme.caption,
+                        ),
                       ],
                     ),
                   ),
@@ -181,7 +185,9 @@ class _HomePageState extends State<HomePage> {
                         splashColor: Colors.black,
                       ),
                       SizedBox(height: 5),
-                      Text("Transfer")
+                      Text("Transfer",
+                        style: Theme.of(context).textTheme.caption,
+                      )
                     ],
                   ),
                   Container(
@@ -201,7 +207,9 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.black,
                         ),
                         SizedBox(height: 5),
-                        Text("Loan")
+                        Text("Loan",
+                          style: Theme.of(context).textTheme.caption,
+                        )
                       ],
                     ),
                   ),
@@ -229,7 +237,9 @@ class _HomePageState extends State<HomePage> {
                           //highlightColor: Colors.green[200],
                         ),
                         SizedBox(height: 5),
-                        Text("Transaction")
+                        Text("Transaction",
+                          style: Theme.of(context).textTheme.caption,
+                        )
                       ],
                     ),
                   ),
