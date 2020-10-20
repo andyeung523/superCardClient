@@ -14,16 +14,26 @@ class _transactionState extends State<transaction> {
     return Scaffold(
       appBar: AppBar(
         title:
-            Text("Transaction History", style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
+            Text("Transaction History", style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.green,
         elevation: 0.0,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.white, //change your color here
         ),
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
-          color: Colors.green,
+          decoration: const BoxDecoration(
+            border: Border(
+                // top: BorderSide(width: 1.0, color: Colors.grey),
+                // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFFFF)),
+                // right: BorderSide(width: 1.0, color: Color(0xFFFF000000)),
+                bottom: BorderSide(
+              width: 1.0,
+              color: Colors.grey,
+            )),
+          ),
+          // color: Colors.grey,
           child: Row(
             children: [
               Expanded(
@@ -33,7 +43,7 @@ class _transactionState extends State<transaction> {
                   ),
                   Text(
                     "09/2020",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.black87),
                   ),
                 ]),
               )
@@ -391,7 +401,17 @@ class _transactionState extends State<transaction> {
             ])),
         Container(
           // new 08
-          color: Colors.green,
+          decoration: const BoxDecoration(
+            border: Border(
+                // top: BorderSide(width: 1.0, color: Colors.grey),
+                // left: BorderSide(width: 1.0, color: Color(0xFFFFFFFFFF)),
+                // right: BorderSide(width: 1.0, color: Color(0xFFFF000000)),
+                bottom: BorderSide(
+              width: 1.0,
+              color: Colors.grey,
+            )),
+          ),
+          // color: Colors.green,
           child: Row(
             children: [
               Expanded(
@@ -401,7 +421,7 @@ class _transactionState extends State<transaction> {
                   ),
                   Text(
                     "08/2020",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.black87),
                   ),
                 ]),
               )
@@ -583,12 +603,12 @@ class _transactionState extends State<transaction> {
                 ],
               )
             ])),
-        RawMaterialButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
+        // RawMaterialButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   child: Text('Go back!'),
+        // ),
       ]),
     );
   }
