@@ -35,35 +35,36 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           //color: Colors.grey,
           child: Text(
-            'Hi, Cyber Youngsters',
+            'Hi, Cyber Youngsters!',
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.left,
           ),
         ),
         SizedBox(height: 10),
         Center(
-          child: Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
-            constraints:
-                BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                //背景装饰
-                gradient: LinearGradient(
-                  //背景径向渐变
-                  colors: [Colors.green, Colors.green[300]],
-                  //center: Alignment.centerLeft,
-                  //radius: .98
-                ),
-                boxShadow: [
-                  //卡片阴影
-                  BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(2.0, 2.0),
-                      blurRadius: 4.0)
-                ]),
-          ),
+          child: Image.asset('assets/images/sc_card_g.png'),
+          // Container(
+          //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          //   //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
+          //   constraints:
+          //       BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
+          //   decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.all(Radius.circular(12)),
+          //       //背景装饰
+          //       gradient: LinearGradient(
+          //         //背景径向渐变
+          //         colors: [Colors.green, Colors.green[300]],
+          //         //center: Alignment.centerLeft,
+          //         //radius: .98
+          //       ),
+          //       boxShadow: [
+          //         //卡片阴影
+          //         BoxShadow(
+          //             color: Colors.black54,
+          //             offset: Offset(2.0, 2.0),
+          //             blurRadius: 4.0)
+          //       ]),
+          // ),
         ),
         SizedBox(height: 15),
         Container(
@@ -77,12 +78,24 @@ class _HomePageState extends State<HomePage> {
                 style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.left,
               ),
-              Text(
-                UserData.accountBalance.toString(),
-                style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.left,
+              Text.rich(
+                TextSpan(
+                  text: 'HKD ',
+                  style: Theme.of(context).textTheme.caption,
+                  children: <InlineSpan>[
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.middle,
+                      // baseline: TextBaseline.alphabetic,
+                      child: Text(
+                        UserData.accountBalance.toString(),
+                        style: Theme.of(context).textTheme.headline4,
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 8),
               Text(
                 'Health Dollar',
                 style: Theme.of(context).textTheme.bodyText2,

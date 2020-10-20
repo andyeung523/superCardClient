@@ -5,6 +5,8 @@ import 'package:super_card_client/view/insurance_page.dart';
 import 'package:super_card_client/view/home_page.dart';
 import 'package:super_card_client/view/explore_page.dart';
 
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 /// This is the main application widget.
 class MainPage extends StatelessWidget {
   static const String _title = 'Flutter Code Sample';
@@ -20,13 +22,14 @@ class MainPage extends StatelessWidget {
           accentColor: Constants.kSecondaryColor,
           textTheme: TextTheme(
               bodyText1: TextStyle(color: Constants.kTextColor),
+              bodyText2: TextStyle(color: Constants.kTextColor, fontSize: 18),
               headline5: TextStyle(color: Constants.kTextColor),
               headline4: TextStyle(color: Constants.kTextColor),
               caption: TextStyle(color: Constants.kTextColor, fontSize: 15),
               button:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
               headline1: TextStyle(
-                  fontSize: 30,
+                  fontSize: 23,
                   color: Constants.kTextColor,
                   fontWeight: FontWeight.bold))),
       home: MyStatefulWidget(),
@@ -68,19 +71,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              MdiIcons.home,
+              size: 35.0,
+            ),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(
+              MdiIcons.textBoxCheckOutline,
+              size: 35.0,
+            ),
             title: Text('Insurance'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(
+              MdiIcons.compass,
+              size: 35.0,
+            ),
             title: Text('Explore'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(
+              MdiIcons.account,
+              size: 35.0,
+            ),
             title: Text('Account'),
           ),
         ],
