@@ -23,11 +23,12 @@ class MainPage extends StatelessWidget {
           accentColor: Constants.kSecondaryColor,
           textTheme: TextTheme(
               bodyText1: TextStyle(color: Constants.kTextColor),
+              bodyText2: TextStyle(color: Constants.kTextColor, fontSize: 18),
               headline5: TextStyle(color: Constants.kTextColor),
               headline4: TextStyle(color: Constants.kTextColor),
               caption: TextStyle(color: Constants.kTextColor,fontSize: 15),
               button: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
-              headline1: TextStyle(fontSize: 30, color: Constants.kTextColor, fontWeight: FontWeight.bold)
+              headline1: TextStyle(fontSize: 23, color: Constants.kTextColor, fontWeight: FontWeight.bold)
           )
       ),
       home: MyStatefulWidget(),
