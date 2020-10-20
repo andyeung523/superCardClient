@@ -12,8 +12,8 @@ class Constants {
   static const String titleTag = '';
   static const kPrimaryColor = Color(0xff51af47);
   static const kSecondaryColor = Color(0xff147f18);
-  static const kBackgroundColor = Color(0xffffffff);
-  static const kTextColor = Color(0x0000000);
+  static const kBackgroundColor = Color(0xffF5FAF3);
+  static const kTextColor = Color(0xff312E2B);
   static const kLinearColor =
       LinearGradient(colors: [kPrimaryColor, kSecondaryColor]);
   static const kDefaultPadding = 16.0;
