@@ -22,9 +22,27 @@ class _cash_backState extends State<cash_back> {
             color: Colors.white, //change your color here
           ),
         ),
-        backgroundColor: Colors.blueGrey,
-        body: Center(
-          child: Container(child: DoubleCircularSlider(100, 0, 20)),
-        ));
+        backgroundColor: Colors.grey[200],
+        body:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Text(
+            'How many Health Dollar do you want to convert into cash?',
+            style: TextStyle(
+              color: Colors.black87,
+              fontSize: 18,
+              textAlign: Alignment.center,
+            ),
+          ),
+          Center(
+            child: Container(
+                child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Center(child: Text('dollar')),
+                DoubleCircularSlider(100, 0, 20),
+              ],
+            )),
+          )
+        ]));
   }
 }

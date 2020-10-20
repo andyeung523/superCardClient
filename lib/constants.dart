@@ -23,4 +23,5 @@ class Constants {
 
 class UserData {
   static int dollar = 500;
+  static int accountBalance = 11500;
 }
