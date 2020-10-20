@@ -31,11 +31,12 @@ class _HomePageState extends State<HomePage> {
             size: 30.0,
           ),
         ),
+
         Container(
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           //color: Colors.grey,
           child: Text(
-            'Hi, Cyber Youngsters',
+            'Hi, Cyber Youngsters!',
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.left,
           ),
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: Container(
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
+            // margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
             constraints:
                 BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
             decoration: BoxDecoration(
@@ -77,12 +78,25 @@ class _HomePageState extends State<HomePage> {
                 style: Theme.of(context).textTheme.bodyText2,
                 textAlign: TextAlign.left,
               ),
-              Text(
-                'HKD 11,500',
-                style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.left,
+              Text.rich(
+                TextSpan(
+                  text: 'HKD ',
+                  style: Theme.of(context).textTheme.caption,
+                  children: <InlineSpan>[
+                    WidgetSpan(
+                        alignment: PlaceholderAlignment.middle,
+                        // baseline: TextBaseline.alphabetic,
+                        child:               Text(
+                          '11,500',
+                          style: Theme.of(context).textTheme.headline4,
+                          textAlign: TextAlign.left,
+                        ),
+                        ),
+
+                  ],
+                ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 8),
               Text(
                 'Health Dollar',
                 style: Theme.of(context).textTheme.bodyText2,
@@ -137,6 +151,7 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           height: 30,
         ),
+
         Center(
           child: Container(
             //color: Colors.amber,
