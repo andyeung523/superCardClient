@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     width: 10,
                   ),
                   Text(
-                    '500',
+                    UserData.dollar.toString(),
                     style: TextStyle(fontSize: 30, color: Colors.black),
                     textAlign: TextAlign.left,
                   ),

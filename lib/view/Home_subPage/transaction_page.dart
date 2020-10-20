@@ -9,7 +9,6 @@ class transaction extends StatefulWidget {
 }
 
 class _transactionState extends State<transaction> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

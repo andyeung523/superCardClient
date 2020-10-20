@@ -11,38 +11,71 @@ class cash_back extends StatefulWidget {
 }
 
 class _cash_backState extends State<cash_back> {
+  // int initDollar = UserData.dollar;
+
+  // @override
+  // void _updateLabels(int end) {
+  //   setState(() {
+  //     initDollar = end;
+  //     // outBedTime = end;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Cash Back", style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.green,
-          elevation: 0.0,
-          iconTheme: IconThemeData(
-            color: Colors.white, //change your color here
+      appBar: AppBar(
+        title: Text("Cash Back", style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.green,
+        elevation: 0.0,
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+      ),
+      backgroundColor: Colors.grey[200],
+      body: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        Text(
+          'How many Health Dollar do you want to convert into cash?',
+          style: TextStyle(
+            color: Colors.black87,
+            fontSize: 18,
+            // ali: Alignment.center,
           ),
         ),
-        backgroundColor: Colors.grey[200],
-        body:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Text(
-            'How many Health Dollar do you want to convert into cash?',
-            style: TextStyle(
-              color: Colors.black87,
-              fontSize: 18,
-              // ali: Alignment.center,
-            ),
-          ),
-          Center(
-            child: Container(
-                child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Center(child: Text('dollar')),
-                DoubleCircularSlider(100, 0, 20),
-              ],
-            )),
-          )
-        ]));
+        Center(
+          child: Container(
+              child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Center(
+                  child: Text(
+                UserData.dollar.toString(),
+                style: TextStyle(fontSize: 40, color: Colors.black87),
+              )),
+              SingleCircularSlider(
+                300,
+                50,
+                baseColor: Colors.green[200],
+                selectionColor: Constants.kPrimaryColor,
+                handlerColor: Colors.black,
+                showRoundedCapInSelection: false,
+                // onSelectionChange: _updateLabels,
+              ),
+            ],
+          )),
+        ),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: []),
+        // FlatButton(
+        //   child: Text('S H U F F L E'),
+        //   // color: baseColor,
+        //   textColor: Colors.white,
+        //   shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(50.0),
+        //   ),
+        //   onPressed: ,
+        // ),
+        // ],
+      ]),
+    );
   }
 }
