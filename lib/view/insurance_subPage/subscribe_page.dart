@@ -102,7 +102,7 @@ class _subPopUpState extends State<subPopUp> {
             padding: EdgeInsets.all(8),
             child: RaisedButton(
               color: Constants.kSecondaryColor,
-              onPressed: () => toggleSub(context, widget.data.id),
+              onPressed: () => showAlertDialog(context, widget.data.id),
               child: Text('Apply Now',
                   style: TextStyle(fontSize: 17, color: Colors.white)),
             ),
@@ -114,6 +114,41 @@ class _subPopUpState extends State<subPopUp> {
     BlocProvider.of<InsuranceBloc>(context).add(ToggleSub(iid));
     //Navigator.of(context).pop();
     Navigator.of(context).pop();
+  }
+
+  showAlertDialog(BuildContext context, int idd) {
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("No", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+        toggleSub(context, idd);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Confirmation of application"),
+      content: Text("Are you sure to apply?", style: TextStyle(fontSize: 18)),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
 //stage1

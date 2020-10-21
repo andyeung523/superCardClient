@@ -17,13 +17,15 @@ class cash_back extends StatefulWidget {
 
 class _cash_backState extends State<cash_back> {
   int initDollar = UserData.dollar;
+  int lap = (UserData.dollar * Constants.cashBackRate).round();
   int posDollar = UserData.dollar;
-  int tranValue = (UserData.dollar * 0.05).round();
+  double cashBackRate = Constants.cashBackRate;
+  int tranValue = (UserData.dollar * Constants.cashBackRate).round();
   void _updateLabels(int asdd, int toChange, int asd) {
     setState(() {
       //posDollar = (asd / UserData.dollar * 300).round();
-      posDollar = (toChange / 300 * UserData.dollar).round();
-      tranValue = (posDollar * 0.05).round();
+      posDollar = (toChange / lap * UserData.dollar).round();
+      tranValue = (posDollar * Constants.cashBackRate).round();
       //log('data: $posDollar, $end ,$asd');
       // outBedTime = end;
     });
@@ -46,66 +48,70 @@ class _cash_backState extends State<cash_back> {
         padding: EdgeInsets.all(12),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Text(
-            'How many Health Dollar do you want to convert into cash?',
-            style: TextStyle(
-              color: Colors.black87,
-              fontSize: 18,
-              // ali: Alignment.center,
+          if (UserData.dollar * Constants.cashBackRate >= 1)
+            Text(
+              'How many Health Dollar do you want to convert into cash?',
+              style: TextStyle(
+                color: Colors.black87,
+                fontSize: 18,
+                // ali: Alignment.center,
+              ),
             ),
-          ),
-          Center(
-            child: Container(
-                child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Icon(
-                    MdiIcons.heartCircleOutline,
-                    size: 50,
-                    color: Constants.kPrimaryColor,
-                  ),
-                  Text(
-                    posDollar.toString(),
-                    style: TextStyle(fontSize: 30, color: Colors.black87),
-                  )
-                ]),
-                SingleCircularSlider(
-                  300,
-                  300,
-                  baseColor: Colors.green[200],
-                  selectionColor: Constants.kPrimaryColor,
-                  handlerColor: Colors.black,
-                  showRoundedCapInSelection: false,
-                  onSelectionChange: _updateLabels,
-                  // onSelectionChange: _updateLabels,
-                ),
-              ],
-            )),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                ' \$' + tranValue.toString(),
-                style: TextStyle(color: Constants.kPrimaryColor, fontSize: 20),
-              )
-            ],
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            RaisedButton(
-              onPressed: () => {
-                UserData.accountBalance += tranValue,
-                UserData.dollar -= posDollar,
-                Navigator.of(context)
-                    .push(
-                      new MaterialPageRoute(builder: (_) => new MainPage()),
+          if (UserData.dollar * Constants.cashBackRate >= 1)
+            Center(
+              child: Container(
+                  child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Icon(
+                      MdiIcons.heartCircleOutline,
+                      size: 50,
+                      color: Constants.kPrimaryColor,
+                    ),
+                    Text(
+                      posDollar.toString(),
+                      style: TextStyle(fontSize: 30, color: Colors.black87),
                     )
-                    .then((val) => val ? _getRequests() : null),
-              },
-              child: Text('Convert!'),
-            )
-          ]),
+                  ]),
+                  SingleCircularSlider(
+                    lap,
+                    lap,
+                    baseColor: Colors.green[200],
+                    selectionColor: Constants.kPrimaryColor,
+                    handlerColor: Colors.black,
+                    showRoundedCapInSelection: false,
+                    onSelectionChange: _updateLabels,
+                    // onSelectionChange: _updateLabels,
+                  )
+                ],
+              )),
+            ),
+          if (UserData.dollar * Constants.cashBackRate >= 1)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  MdiIcons.heartCircleOutline,
+                  size: 20,
+                  color: Constants.kPrimaryColor,
+                ),
+                Text(
+                  '$posDollar x $cashBackRate = \$' + tranValue.toString(),
+                  style:
+                      TextStyle(color: Constants.kPrimaryColor, fontSize: 25),
+                )
+              ],
+            ),
+          if (UserData.dollar * Constants.cashBackRate >= 1)
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              RaisedButton(
+                color: Constants.kPrimaryColor,
+                onPressed: () => {showAlertDialog(context)},
+                child: Text('Convert!',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+              )
+            ]),
           // FlatButton(
           //   child: Text('S H U F F L E'),
           //   // color: baseColor,
@@ -115,9 +121,76 @@ class _cash_backState extends State<cash_back> {
           //   ),
           //   onPressed: ,
           // ),
+
+          if (UserData.dollar * Constants.cashBackRate < 1)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  MdiIcons.emoticonDevilOutline,
+                  size: 250,
+                  color: Constants.kPrimaryColor,
+                ),
+              ],
+            ),
+          if (UserData.dollar * Constants.cashBackRate < 1)
+            Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    'Oh, you have not enough Health Dollar, time to shopping !',
+                    style: TextStyle(
+                        fontSize: 20, color: Constants.kSecondaryColor),
+                  ),
+                )
+              ],
+            ),
           // ],
         ]),
       ),
     );
   }
+
+  showAlertDialog(BuildContext context) {
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("No", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+        UserData.accountBalance += tranValue;
+        UserData.dollar -= posDollar;
+        Navigator.of(context)
+            .push(
+              new MaterialPageRoute(builder: (_) => new MainPage()),
+            )
+            .then((val) => val ? _getRequests() : null);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Confirmation of convertion"),
+      content: Text("Are you sure to convert?", style: TextStyle(fontSize: 18)),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  _getRequests() {}
 }

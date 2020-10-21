@@ -35,6 +35,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String greeting = DateTime.now().hour > 17
+        ? 'Good evening'
+        : DateTime.now().hour > 12
+            ? 'Good morning'
+            : 'Good afternoon';
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -53,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
           //color: Colors.grey,
           child: Text(
-            'Hi, Cyber Youngsters!',
+            '$greeting, Joey!',
             style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.left,
           ),
