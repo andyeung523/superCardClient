@@ -15,6 +15,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var cardNo = 'XXXX-XXXX-XXXX-XXXX';
+  var cardNoState = 0;
+  void displayCardno() {
+    setState(() {
+      if (cardNoState == 0) {
+        cardNo = '1234-5678-1234-5678';
+        cardNoState = 1;
+      } else {
+        cardNo = 'XXXX-XXXX-XXXX-XXXX';
+        cardNoState = 0;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +56,27 @@ class _HomePageState extends State<HomePage> {
         ),
         SizedBox(height: 10),
         Center(
-          child: Image.asset('assets/images/sc_card_g.png'),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                Image.asset('assets/images/sc_card_g.png'),
+                Positioned(
+                  bottom: 10.0,
+                  left: 15.0,
+                  child: Row(
+                    children: [
+                      Text(cardNo),
+                      IconButton(
+                          icon: Icon(Icons.favorite),
+                          onPressed: displayCardno,
+                          highlightColor: null)
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
           // Container(
           //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           //   //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
