@@ -17,13 +17,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var cardNo = 'XXXX-XXXX-XXXX-XXXX';
   var cardNoState = 0;
+  var displayIcon = Icon(MdiIcons.eye);
+
   void displayCardno() {
     setState(() {
       if (cardNoState == 0) {
         cardNo = '1234-5678-1234-5678';
+        displayIcon = Icon(MdiIcons.eye);
         cardNoState = 1;
       } else {
         cardNo = 'XXXX-XXXX-XXXX-XXXX';
+        displayIcon = Icon(MdiIcons.eyeOff);
         cardNoState = 0;
       }
     });
@@ -68,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(cardNo),
                       IconButton(
-                          icon: Icon(Icons.favorite),
+                          icon: displayIcon,
                           onPressed: displayCardno,
                           highlightColor: null)
                     ],
