@@ -27,6 +27,8 @@ class _InsurancePageState extends State<InsurancePage> {
       appBar: AppBar(
         title: Text(
           'Insurance',
+          style: Theme.of(context).textTheme.subtitle1,
+          textScaleFactor: 1.5,
         ),
         centerTitle: true,
         elevation: 0.0,
@@ -39,15 +41,11 @@ class _InsurancePageState extends State<InsurancePage> {
               parent: AlwaysScrollableScrollPhysics()),
           children: [
             Container(
-                child: Text(
+              child: Text(
               'My insurance',
-              style: GoogleFonts.lato(
-                textStyle: TextStyle(
-                  fontSize: 30.0,
-                  color: Colors.black,
-                ),
+              style: Theme.of(context).textTheme.headline4,
               ),
-            )),
+            ),
             BlocConsumer<InsuranceBloc, InsuranceState>(
               listener: (context, state) {
                 if (state is InsuraceError)
@@ -67,12 +65,7 @@ class _InsurancePageState extends State<InsurancePage> {
               padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Text(
                 'Insurance list',
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.black,
-                  ),
-                ),
+                style: Theme.of(context).textTheme.headline4,
               ),
             ),
             BlocConsumer<InsuranceBloc, InsuranceState>(

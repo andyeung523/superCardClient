@@ -27,8 +27,11 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(Constants.kLargePadding,
-          Constants.kLargePadding, Constants.kLargePadding, 0),
+      margin: EdgeInsets.fromLTRB(
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -52,13 +55,8 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                         children: [
                           Text(
                             widget.data.name,
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.greenAccent[250],
-                              ),
-                            ),
+                            style: Theme.of(context).textTheme.button,
+                            textScaleFactor: 2,
                           ),
                         ],
                       ),
@@ -66,38 +64,31 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                         children: [
                           Text(
                             'Due date: ' + widget.data.dueDate,
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                  fontSize: 15.0, color: Colors.white),
-                            ),
+                            style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
                       Row(
                         children: [
                           Text(
-                            'Price: ' + widget.data.price.toString(),
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
+                            'Price: \$' + widget.data.price.toString(),
+                            style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          FlatButton(
-                            onPressed: () {},
+                          InkWell(
+                            onTap: () {},
                             child: Text("Claim",
                                 style: TextStyle(
                                     decoration: TextDecoration.underline,
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black)),
-                            shape: CircleBorder(
-                                side: BorderSide(color: Colors.transparent)),
+                                    color: Constants.kTextColor)),
+                            /*shape: CircleBorder(
+                                side: BorderSide(color: Colors.red)),*/
                           ),
                         ],
                       )
@@ -116,10 +107,10 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                             return PayPopUp(price: widget.data.price);
                           });
                     },
-                    child: const Text('PAY',
-                        style: TextStyle(
-                          fontSize: 15,
-                        )),
+                    child: Text(
+                      'PAY',
+                      style: Theme.of(context).textTheme.caption,
+                    ),
                   ))
             ],
           ),
@@ -144,12 +135,26 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left: 15, right: 15),
         child: ExpansionTile(
-          title: Text(widget.data.name),
+          tilePadding: EdgeInsets.zero,
+          title: Row(children: [
+            Icon(
+              MdiIcons.clipboardCheckMultipleOutline,
+              color: Constants.kTextColor,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              widget.data.name,
+              style: Theme.of(context).textTheme.headline5,
+            )
+          ]),
           children: [
             Container(
               alignment: Alignment.centerLeft,
+              // padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   Text(
@@ -157,13 +162,8 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
                         (desList.length < 20
                             ? widget.data.des
                             : desList.sublist(0, 20).join(' ')) +
-                        ' . . . ',
-                    style: GoogleFonts.lato(
-                      textStyle: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                      ),
-                    ),
+                        (desList.length > 20 ? ' . . . ' : ''),
+                    style: Theme.of(context).textTheme.caption,
                   ),
                 ],
               ),
