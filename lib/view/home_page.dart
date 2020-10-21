@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                       alignment: PlaceholderAlignment.middle,
                       // baseline: TextBaseline.alphabetic,
                       child: Text(
-                        '11,500',
+                        UserData.accountBalance.toString(),
                         style: Theme.of(context).textTheme.headline4,
                         textAlign: TextAlign.left,
                       ),

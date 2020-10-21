@@ -4,6 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:super_card_client/bloc/insurace_bloc/ins_bloc.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:super_card_client/data/insurance.dart';
+import 'package:super_card_client/view/main_page.dart';
 
 class subPopUp extends StatefulWidget {
   subPopUp({Key key, this.data}) : super(key: key);
@@ -13,6 +14,7 @@ class subPopUp extends StatefulWidget {
 }
 
 class _subPopUpState extends State<subPopUp> {
+  _getRequests() async {}
   bool isLeft = true;
   @override
   Widget build(BuildContext context) {
@@ -110,6 +112,7 @@ class _subPopUpState extends State<subPopUp> {
 
   void toggleSub(BuildContext context, int iid) {
     BlocProvider.of<InsuranceBloc>(context).add(ToggleSub(iid));
+    //Navigator.of(context).pop();
     Navigator.of(context).pop();
   }
 }
