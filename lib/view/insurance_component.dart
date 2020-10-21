@@ -140,6 +140,8 @@ class InsuranceNoSubedCard extends StatefulWidget {
 class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
   @override
   Widget build(BuildContext context) {
+    var desList = widget.data.des.split(' ');
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -151,7 +153,11 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
               child: Column(
                 children: [
                   Text(
-                    ' Detail: ' + widget.data.des,
+                    ' Detail: ' +
+                        (desList.length < 20
+                            ? widget.data.des
+                            : desList.sublist(0, 20).join(' ')) +
+                        ' . . . ',
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 15.0,
