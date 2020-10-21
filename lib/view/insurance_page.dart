@@ -27,6 +27,8 @@ class _InsurancePageState extends State<InsurancePage> {
       appBar: AppBar(
         title: Text(
           'Insurance',
+          style: Theme.of(context).textTheme.subtitle1,
+          textScaleFactor: 1.5,
         ),
         centerTitle: true,
         elevation: 0.0,
