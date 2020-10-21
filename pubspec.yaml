@@ -32,6 +32,9 @@ dependencies:
   material_design_icons_flutter: 4.0.5755
   flutter_circular_slider: ^2.5.0
   google_maps_flutter: ^1.0.3
+  getwidget: ^1.2.2
+  carousel_slider: ^2.3.1
+
 
 
 
@@ -56,6 +59,10 @@ flutter:
   assets:
     - assets/images/superCard_log_1.png
     - assets/images/sc_card_g.png
+    - assets/images/map.png
+    - assets/images/dimdimgreen.png
+    - assets/images/maxgym.png
+    - assets/images/luluapple.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
