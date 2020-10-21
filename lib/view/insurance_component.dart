@@ -85,6 +85,22 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                           ),
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          FlatButton(
+                            onPressed: () {},
+                            child: Text("Claim",
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            shape: CircleBorder(
+                                side: BorderSide(color: Colors.transparent)),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),

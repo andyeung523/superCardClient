@@ -34,7 +34,7 @@ class _InsurancePageState extends State<InsurancePage> {
       ),
       body: Container(
         child: ListView(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
           physics: const BouncingScrollPhysics(
               parent: AlwaysScrollableScrollPhysics()),
           children: [

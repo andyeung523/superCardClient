@@ -7,7 +7,6 @@ import 'package:super_card_client/view/explore_page.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-
 /// This is the main application widget.
 class MainPage extends StatelessWidget {
   static const String _title = 'Flutter Code Sample';
@@ -17,7 +16,7 @@ class MainPage extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(
-        // Define the default brightness and colors.
+          // Define the default brightness and colors.
           scaffoldBackgroundColor: Constants.kBackgroundColor,
           primaryColor: Constants.kPrimaryColor,
           accentColor: Constants.kSecondaryColor,
@@ -26,11 +25,13 @@ class MainPage extends StatelessWidget {
               bodyText2: TextStyle(color: Constants.kTextColor, fontSize: 18),
               headline5: TextStyle(color: Constants.kTextColor),
               headline4: TextStyle(color: Constants.kTextColor),
-              caption: TextStyle(color: Constants.kTextColor,fontSize: 15),
-              button: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
-              headline1: TextStyle(fontSize: 23, color: Constants.kTextColor, fontWeight: FontWeight.bold)
-          )
-      ),
+              caption: TextStyle(color: Constants.kTextColor, fontSize: 15),
+              button:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+              headline1: TextStyle(
+                  fontSize: 23,
+                  color: Constants.kTextColor,
+                  fontWeight: FontWeight.bold))),
       home: MyStatefulWidget(),
     );
   }
@@ -72,7 +73,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(
               MdiIcons.home,
-              size: 35.0,),
+              size: 35.0,
+            ),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
@@ -85,13 +87,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(
               MdiIcons.compass,
-              size: 35.0,),
+              size: 35.0,
+            ),
             title: Text('Explore'),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               MdiIcons.account,
-              size: 35.0,),
+              size: 35.0,
+            ),
             title: Text('Account'),
           ),
         ],
