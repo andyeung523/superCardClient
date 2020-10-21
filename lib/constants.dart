@@ -19,6 +19,8 @@ class Constants {
   static const kDefaultPadding = 16.0;
   static const kLargePadding = 32.0;
   static const kSmallPadding = 12.0;
+  static const cashBackRate = 0.01;
+  static const insTranRate = 0.05;
 }
 
 class UserData {
