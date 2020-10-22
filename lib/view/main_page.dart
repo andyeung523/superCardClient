@@ -25,8 +25,10 @@ class MainPage extends StatelessWidget {
               bodyText2: TextStyle(color: Constants.kTextColor, fontSize: 18),
               headline5: TextStyle(color: Constants.kTextColor),
               headline4: TextStyle(color: Constants.kTextColor),
+              headline6: TextStyle(color: Constants.kTextColor),
               caption: TextStyle(color: Constants.kTextColor, fontSize: 15),
               subtitle1: TextStyle(color: Colors.white),
+              subtitle2: TextStyle(color: Constants.kPrimaryColor, fontSize: 20, fontWeight: FontWeight.bold),
               button:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
               headline1: TextStyle(
