@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
           localizedReason: 'Scan your fingerprint to authenticate',
           useErrorDialogs: true,
           stickyAuth: true);
-      displayCardno();
+
       setState(() {
         _isAuthenticating = false;
         _authorized = 'Authenticating';
@@ -82,6 +82,9 @@ class _HomePageState extends State<HomePage> {
     final String message = authenticated ? 'Authorized' : 'Not Authorized';
     setState(() {
       _authorized = message;
+      if (authenticated) {
+        displayCardno();
+      }
     });
   }
 
@@ -130,10 +133,13 @@ class _HomePageState extends State<HomePage> {
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: Icon(
-            MdiIcons.faceAgent,
-            color: Constants.kPrimaryColor,
-            size: 30.0,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+            child: Icon(
+              MdiIcons.faceAgent,
+              color: Constants.kPrimaryColor,
+              size: 30.0,
+            ),
           ),
         ),
         Container(
