@@ -59,18 +59,6 @@ class _subPopUpState extends State<subPopUp> {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Flexible(
-                        child: Text(
-                      'Coverage',
-                      style: TextStyle(
-                          color: Constants.kPrimaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    )),
-                  ],
-                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -99,6 +87,18 @@ class _subPopUpState extends State<subPopUp> {
                       )
                     ],
                   ),
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                        child: Text(
+                      'Coverage',
+                      style: TextStyle(
+                          color: Constants.kPrimaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    )),
+                  ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
