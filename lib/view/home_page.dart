@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(8.0),
             child: Stack(
               children: [
-                Image.asset('assets/images/sc_card_g.png'),
+                Image.asset('assets/images/card_img.png'),
                 Positioned(
                   right: 20.0,
                   bottom: 100.0,

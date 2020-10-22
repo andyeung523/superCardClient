@@ -59,7 +59,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/superCard_log_1.png
-    - assets/images/sc_card_g.png
+    - assets/images/card_img.png
     - assets/images/map.png
     - assets/images/dimdimgreen.png
     - assets/images/maxgym.png

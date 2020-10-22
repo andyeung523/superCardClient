@@ -31,7 +31,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
           Constants.kDefaultPadding,
           Constants.kDefaultPadding,
           Constants.kDefaultPadding,
-          Constants.kDefaultPadding),
+          0),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -56,7 +56,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                           Text(
                             widget.data.name,
                             style: Theme.of(context).textTheme.button,
-                            textScaleFactor: 2,
+                            textScaleFactor: 1.5,
                           ),
                         ],
                       ),
@@ -72,7 +72,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                         children: [
                           Text(
                             'Price: \$' + widget.data.price.toString(),
-                            style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
@@ -109,7 +109,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                     },
                     child: Text(
                       'PAY',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.button,
                     ),
                   ))
             ],
@@ -135,22 +135,17 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15),
+        padding: const EdgeInsets.only(left: 15,right: 15),
         child: ExpansionTile(
           tilePadding: EdgeInsets.zero,
-          title: Row(children: [
-            Icon(
-              MdiIcons.clipboardCheckMultipleOutline,
-              color: Constants.kTextColor,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              widget.data.name,
-              style: Theme.of(context).textTheme.headline5,
-            )
-          ]),
+          title: Row(
+            children: [
+              Icon(MdiIcons.clipboardCheckMultipleOutline,
+              color: Constants.kTextColor,),
+              SizedBox(width: 5,),
+              Text(widget.data.name,
+                style: Theme.of(context).textTheme.headline6,
+              )]),
           children: [
             Container(
               alignment: Alignment.centerLeft,
@@ -158,11 +153,10 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
               child: Column(
                 children: [
                   Text(
-                    ' Detail: ' +
-                        (desList.length < 20
+                    (desList.length < 20
                             ? widget.data.des
                             : desList.sublist(0, 20).join(' ')) +
-                        (desList.length > 20 ? ' . . . ' : ''),
+                        (desList.length > 20 ? '...' : ''),
                     style: Theme.of(context).textTheme.caption,
                   ),
                 ],
@@ -178,7 +172,7 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
                       builder: (context) => subPopUp(data: widget.data)),
                 );
               },
-              child: Text('Detail',
+              child: Text('Details',
                   style: TextStyle(color: Colors.white, fontSize: 17)),
             )
           ],
