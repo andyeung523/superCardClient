@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
         cardNo = '1234-5678-1234-5678';
         displayIcon = Icon(MdiIcons.eye);
         expDate = '10/25';
-        cvv = '123';
+        cvv = '430';
         cardNoState = 1;
       } else {
         cardNo = 'XXXX-XXXX-XXXX-XXXX';
@@ -161,11 +161,15 @@ class _HomePageState extends State<HomePage> {
                       highlightColor: null),
                 ),
                 Positioned(
-                  bottom: 110.0,
+                  bottom: 90.0,
                   left: 15.0,
                   child: Row(
                     children: [
-                      Text(cardNo),
+                      Text(cardNo,
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold))
                       // IconButton(
                       //     icon: displayIcon,
                       //     onPressed: displayCardno,
@@ -184,16 +188,32 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             "VALID THRU",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
                           ),
-                          Text(expDate),
+                          Text(expDate,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: 25),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("CVV"),
-                          Text(cvv),
+                          Text("CVV",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              )),
+                          Text(cvv,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                       // IconButton(
