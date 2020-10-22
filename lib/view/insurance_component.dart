@@ -27,8 +27,11 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(Constants.kDefaultPadding,
-          Constants.kDefaultPadding, Constants.kDefaultPadding, Constants.kDefaultPadding),
+      margin: EdgeInsets.fromLTRB(
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding,
+          Constants.kDefaultPadding),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -62,7 +65,6 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                           Text(
                             'Due date: ' + widget.data.dueDate,
                             style: Theme.of(context).textTheme.caption,
-
                           ),
                         ],
                       ),
@@ -105,7 +107,8 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                             return PayPopUp(price: widget.data.price);
                           });
                     },
-                    child: Text('PAY',
+                    child: Text(
+                      'PAY',
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ))
@@ -128,6 +131,8 @@ class InsuranceNoSubedCard extends StatefulWidget {
 class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
   @override
   Widget build(BuildContext context) {
+    var desList = widget.data.des.split(' ');
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.only(left: 15,right: 15),
@@ -148,8 +153,12 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
               child: Column(
                 children: [
                   Text(
-                    widget.data.des,
-                      style: Theme.of(context).textTheme.caption,
+                    ' Detail: ' +
+                        (desList.length < 20
+                            ? widget.data.des
+                            : desList.sublist(0, 20).join(' ')) +
+                        (desList.length > 20 ? ' . . . ' : ''),
+                    style: Theme.of(context).textTheme.caption,
                   ),
                 ],
               ),

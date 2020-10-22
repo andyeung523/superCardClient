@@ -160,11 +160,7 @@ class _PayPopUpState extends State<PayPopUp> {
                         child: RaisedButton(
                           color: Constants.kPrimaryColor,
                           onPressed: () {
-                            updateHD(UserData.dollar > widget.price / 0.05
-                                ? widget.price / 0.05
-                                : UserData.dollar);
-                            setState(() => {});
-                            Navigator.of(context).pop();
+                            showAlertDialog(context);
                           },
                           child: Text('PAY'),
                         ),
@@ -193,4 +189,43 @@ class _PayPopUpState extends State<PayPopUp> {
             {UserData.accountBalance = (UserData.accountBalance - widget.price)}
           }
       };
+
+  showAlertDialog(BuildContext context) {
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("No", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      onPressed: () {
+        updateHD(UserData.dollar > widget.price / 0.05
+            ? widget.price / 0.05
+            : UserData.dollar);
+        setState(() => {});
+        Navigator.of(context, rootNavigator: true).pop();
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Confirmation of the payment"),
+      content: Text("Are you sure to pay?", style: TextStyle(fontSize: 18)),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 }

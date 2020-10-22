@@ -1,8 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:getwidget/getwidget.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ExplorePage extends StatefulWidget {
   @override
@@ -14,6 +13,11 @@ class ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> imageList = [
+      Image.asset('assets/images/dimdimgreen.png'),
+      Image.asset('assets/images/luluapple.png'),
+      Image.asset('assets/images/maxgym.png')
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text("New York"),
@@ -26,6 +30,32 @@ class ExplorePageState extends State<ExplorePage> {
                 //
               }),
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Image.asset('assets/images/map.png'),
+              Container(
+                color: Colors.green,
+                height: 8,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GFCarousel(
+                // height: 500,
+                items: imageList,
+                enableInfiniteScroll: false,
+                onPageChanged: (index) {
+                  setState(() {
+                    index;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
