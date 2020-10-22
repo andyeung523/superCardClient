@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -71,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Image.asset('assets/images/sc_card_g.png'),
                 Positioned(
-                  bottom: 10.0,
+                  bottom: 100.0,
                   left: 15.0,
                   child: Row(
                     children: [
@@ -80,6 +82,33 @@ class _HomePageState extends State<HomePage> {
                           icon: displayIcon,
                           onPressed: displayCardno,
                           highlightColor: null)
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: 20.0,
+                  left: 15.0,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("VALID THRU"),
+                          Text("10/25"),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("CVV"),
+                          Text("123"),
+                        ],
+                      ),
+                      // IconButton(
+                      //     icon: displayIcon,
+                      //     onPressed: displayCardno,
+                      //     highlightColor: null)
                     ],
                   ),
                 )
