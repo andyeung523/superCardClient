@@ -42,7 +42,7 @@ class _transactionState extends State<transaction> {
                   ),
                   Text(
                     "09/2020",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 18, color: Constants.kTextColor),
                   ),
                 ]),
               )
@@ -130,7 +130,7 @@ class _transactionState extends State<transaction> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "+ 70",
+                                  "+ 700",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
@@ -233,7 +233,7 @@ class _transactionState extends State<transaction> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "+ 48",
+                                  "+ 480",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
@@ -420,7 +420,7 @@ class _transactionState extends State<transaction> {
                   ),
                   Text(
                     "08/2020",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 18, color: Constants.kTextColor),
                   ),
                 ]),
               )
@@ -508,7 +508,7 @@ class _transactionState extends State<transaction> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "+ 63",
+                                  "+ 630",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),

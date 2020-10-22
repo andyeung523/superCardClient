@@ -46,17 +46,16 @@ class _cash_backState extends State<cash_back> {
       ),
       backgroundColor: Colors.grey[200],
       body: Container(
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.only(left:12,right:12),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           if (UserData.dollar * Constants.cashBackRate >= 1)
             Text(
               'How many Health Dollar do you want to convert into cash?',
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 18,
-                // ali: Alignment.center,
-              ),
+                style: Theme.of(context).textTheme.caption,
+
+        // ali: Alignment.center,
+
             ),
           if (UserData.dollar * Constants.cashBackRate >= 1)
             Center(
@@ -72,7 +71,7 @@ class _cash_backState extends State<cash_back> {
                     ),
                     Text(
                       posDollar.toString(),
-                      style: TextStyle(fontSize: 30, color: Colors.black87),
+                      style: TextStyle(fontSize: 30, color: Constants.kTextColor),
                     )
                   ]),
                   SingleCircularSlider(
@@ -80,7 +79,7 @@ class _cash_backState extends State<cash_back> {
                     lap,
                     baseColor: Colors.green[200],
                     selectionColor: Constants.kPrimaryColor,
-                    handlerColor: Colors.black,
+                    handlerColor: Constants.kTextColor,
                     showRoundedCapInSelection: false,
                     onSelectionChange: _updateLabels,
                     // onSelectionChange: _updateLabels,
@@ -109,7 +108,7 @@ class _cash_backState extends State<cash_back> {
               RaisedButton(
                 color: Constants.kPrimaryColor,
                 onPressed: () => {showAlertDialog(context)},
-                child: Text('Convert!',
+                child: Text('Convert',
                     style: TextStyle(color: Colors.white, fontSize: 20)),
               )
             ]),
@@ -139,7 +138,7 @@ class _cash_backState extends State<cash_back> {
               children: [
                 Flexible(
                   child: Text(
-                    'Oh, you have not enough Health Dollar, time to shopping !',
+                    'Oh, you do not have enough Health Dollar, time to shop!',
                     style: TextStyle(
                         fontSize: 20, color: Constants.kSecondaryColor),
                   ),
@@ -158,13 +157,15 @@ class _cash_backState extends State<cash_back> {
         content: Text('Convert success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
-      child: Text("No", style: TextStyle(fontSize: 20)),
+      child: Text("No",style: Theme.of(context).textTheme.subtitle2,
+      ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      child: Text("Yes", style: Theme.of(context).textTheme.subtitle2,
+      ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
         UserData.accountBalance += tranValue;
@@ -180,8 +181,11 @@ class _cash_backState extends State<cash_back> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of convertion"),
-      content: Text("Are you sure to convert?", style: TextStyle(fontSize: 18)),
+      title: Text("Confirmation of conversion",style: Theme.of(context).textTheme.headline5,
+        textScaleFactor: 0.8,
+      ),
+      content: Text("Are you sure to convert?",style: Theme.of(context).textTheme.caption,
+      ),
       actions: [
         cancelButton,
         continueButton,
