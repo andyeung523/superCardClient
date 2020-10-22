@@ -31,7 +31,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
           Constants.kDefaultPadding,
           Constants.kDefaultPadding,
           Constants.kDefaultPadding,
-          Constants.kDefaultPadding),
+          0),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -56,7 +56,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                           Text(
                             widget.data.name,
                             style: Theme.of(context).textTheme.button,
-                            textScaleFactor: 2,
+                            textScaleFactor: 1.5,
                           ),
                         ],
                       ),
