@@ -17,6 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var cardNo = 'XXXX-XXXX-XXXX-XXXX';
   var cardNoState = 0;
+  var expDate = 'XX/XX';
+  var cvv = 'XXX';
   var displayIcon = Icon(MdiIcons.eye);
 
   void displayCardno() {
@@ -24,10 +26,14 @@ class _HomePageState extends State<HomePage> {
       if (cardNoState == 0) {
         cardNo = '1234-5678-1234-5678';
         displayIcon = Icon(MdiIcons.eye);
+        expDate = '10/25';
+        cvv = '123';
         cardNoState = 1;
       } else {
         cardNo = 'XXXX-XXXX-XXXX-XXXX';
         displayIcon = Icon(MdiIcons.eyeOff);
+        expDate = 'XX/XX';
+        cvv = 'XXX';
         cardNoState = 0;
       }
     });
@@ -71,15 +77,23 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Image.asset('assets/images/sc_card_g.png'),
                 Positioned(
+                  right: 20.0,
                   bottom: 100.0,
+                  child: IconButton(
+                      icon: displayIcon,
+                      onPressed: displayCardno,
+                      highlightColor: null),
+                ),
+                Positioned(
+                  bottom: 110.0,
                   left: 15.0,
                   child: Row(
                     children: [
                       Text(cardNo),
-                      IconButton(
-                          icon: displayIcon,
-                          onPressed: displayCardno,
-                          highlightColor: null)
+                      // IconButton(
+                      //     icon: displayIcon,
+                      //     onPressed: displayCardno,
+                      //     highlightColor: null)
                     ],
                   ),
                 ),
@@ -92,15 +106,18 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("VALID THRU"),
-                          Text("10/25"),
+                          Text(
+                            "VALID THRU",
+                          ),
+                          Text(expDate),
                         ],
                       ),
+                      SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("CVV"),
-                          Text("123"),
+                          Text(cvv),
                         ],
                       ),
                       // IconButton(
