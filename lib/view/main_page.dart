@@ -4,6 +4,7 @@ import 'package:super_card_client/view/account_page.dart';
 import 'package:super_card_client/view/insurance_page.dart';
 import 'package:super_card_client/view/home_page.dart';
 import 'package:super_card_client/view/explore_page.dart';
+import 'package:flutter/services.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -13,6 +14,9 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: Colors.black,
+    // ));
     return MaterialApp(
       title: _title,
       debugShowCheckedModeBanner: false,

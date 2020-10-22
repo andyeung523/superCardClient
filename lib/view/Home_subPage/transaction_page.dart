@@ -11,6 +11,7 @@ class _transactionState extends State<transaction> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title:
             Text("Transaction History", style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green,

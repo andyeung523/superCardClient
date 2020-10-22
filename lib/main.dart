@@ -5,13 +5,14 @@ import 'package:super_card_client/view/account_page.dart';
 import 'package:super_card_client/view/insurance_page.dart';
 import 'package:super_card_client/view/home_page.dart';
 import 'package:super_card_client/view/explore_page.dart';
-
+import 'package:flutter/services.dart';
 import 'package:super_card_client/view/main_page.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:super_card_client/view/LoginScreen.dart';
 
 void main() {
   runApp(MyApp());
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 }
 
 class MyApp extends StatelessWidget {

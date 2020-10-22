@@ -36,6 +36,7 @@ class _cash_backState extends State<cash_back> {
     _getRequests() async {}
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text("Cash Back", style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green,
         elevation: 0.0,

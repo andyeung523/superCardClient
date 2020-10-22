@@ -19,6 +19,7 @@ class ExplorePageState extends State<ExplorePage> {
     ];
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text("Exlore offers around you"),
         backgroundColor: Constants.kPrimaryColor,
         elevation: 0.0,
