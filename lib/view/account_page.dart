@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:super_card_client/constants.dart';
 
 class AccountPage extends StatefulWidget {
   AccountPage({Key key}) : super(key: key);
@@ -78,33 +79,77 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Plugin example app'),
-      ),
-      body: ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
+    return Scaffold(
+      backgroundColor: Constants.kBackgroundColor,
+//      appBar: AppBar(
+//        title: Text('First APP'),
+//        backgroundColor: Colors.pink[400],
+//      ),
+      body: Padding(
+        padding: EdgeInsets.only(top: 30.0),
+        child: Center(
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                // Text('Can check biometrics: $_canCheckBiometrics\n'),
-                // RaisedButton(
-                //   child: const Text('Check biometrics'),
-                //   onPressed: _checkBiometrics,
-                // ),
-                // Text('Available biometrics: $_availableBiometrics\n'),
-                // RaisedButton(
-                //   child: const Text('Get available biometrics'),
-                //   onPressed: _getAvailableBiometrics,
-                // ),
-                // Text('Current State: $_authorized\n'),
-                RaisedButton(
-                  child: Text(_isAuthenticating ? 'Cancel' : 'Authenticate'),
-                  onPressed:
-                      _isAuthenticating ? _cancelAuthentication : _authenticate,
-                )
-              ])),
-    ));
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Image.asset(
+                "assets/images/dpb.png",
+                height: 200,
+              ),
+              Text(
+                'Joey',
+                style: TextStyle(fontSize: 32.0),
+              ),
+
+              // Text(
+              //   'Flutter Developer',
+              //   style: TextStyle(fontSize: 16.0),
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Colors.brown,
+                        radius: 32,
+                        child: Text(
+                          '50',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text('Followers')
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Colors.brown,
+                        radius: 32,
+                        child: Text(
+                          '100',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text('Following')
+                    ],
+                  )
+                ],
+              ),
+              Container(
+                height: 400.0,
+                width: double.infinity,
+                color: Colors.brown[300],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
