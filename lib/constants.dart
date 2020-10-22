@@ -13,7 +13,7 @@ class Constants {
   static const kPrimaryColor = Color(0xff51af47);
   static const kSecondaryColor = Color(0xff147f18);
   static const kBackgroundColor = Color(0xffF5FAF3);
-  static const kTextColor = Color(0xff312E2B);
+  static const kTextColor = Color(0xff413D39);
   static const kLinearColor =
       LinearGradient(colors: [kPrimaryColor, kSecondaryColor]);
   static const kDefaultPadding = 16.0;

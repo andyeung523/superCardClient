@@ -40,7 +40,7 @@ class _subPopUpState extends State<subPopUp> {
                 Row(children: [
                   Flexible(
                       child: Text(
-                    'Detail',
+                    'Details',
                     style: TextStyle(
                         color: Constants.kPrimaryColor,
                         fontWeight: FontWeight.bold,
@@ -48,18 +48,22 @@ class _subPopUpState extends State<subPopUp> {
                   ))
                 ]),
                 Row(
-                  children: [Flexible(child: Text(widget.data.des))],
+                  children: [Flexible(child:
+                  Text(widget.data.des,
+                    style: Theme.of(context).textTheme.caption,
+                  ))],
                 ),
+                SizedBox(height: 10,),
                 Row(
                   children: [
                     Flexible(
                         child: Text(
-                      'Sum Insuranced',
+                      'Coverage',
                       style: TextStyle(
                           color: Constants.kPrimaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
-                    ))
+                    )),
                   ],
                 ),
                 Row(
@@ -71,10 +75,9 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = true});
                       },
-                      child: Text('\$50 ,000',
-                          style: TextStyle(
-                              color: isLeft ? Colors.white : Colors.black,
-                              fontSize: 17)),
+                      child: Text('\$500,000',
+                          style: Theme.of(context).textTheme.button,
+                          textScaleFactor: 1.2,),
                     ),
                     RaisedButton(
                       color:
@@ -82,10 +85,9 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = false});
                       },
-                      child: Text('\$100 ,000',
-                          style: TextStyle(
-                              color: isLeft ? Colors.black : Colors.white,
-                              fontSize: 17)),
+                      child: Text('\$1,000,000',
+                          style: Theme.of(context).textTheme.button,
+                      textScaleFactor: 1.2,),
                     ),
                   ],
                 ),
@@ -104,7 +106,8 @@ class _subPopUpState extends State<subPopUp> {
               color: Constants.kSecondaryColor,
               onPressed: () => showAlertDialog(context, widget.data.id),
               child: Text('Apply Now',
-                  style: TextStyle(fontSize: 17, color: Colors.white)),
+                style: Theme.of(context).textTheme.button,
+                textScaleFactor: 1.2,),
             ),
           ),
         ));
@@ -119,13 +122,13 @@ class _subPopUpState extends State<subPopUp> {
   showAlertDialog(BuildContext context, int idd) {
     // set up the buttons
     Widget cancelButton = FlatButton(
-      child: Text("No", style: TextStyle(fontSize: 20)),
+      child: Text("No", style: Theme.of(context).textTheme.subtitle2),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      child: Text("Yes", style: Theme.of(context).textTheme.subtitle2),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
         toggleSub(context, idd);
@@ -134,8 +137,10 @@ class _subPopUpState extends State<subPopUp> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of application"),
-      content: Text("Are you sure to apply?", style: TextStyle(fontSize: 18)),
+      title: Text("Confirmation of application",
+      style: Theme.of(context).textTheme.headline5,
+      textScaleFactor: 0.8,),
+      content: Text("Are you sure to apply?", style: Theme.of(context).textTheme.caption),
       actions: [
         cancelButton,
         continueButton,
