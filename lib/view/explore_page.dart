@@ -20,16 +20,16 @@ class ExplorePageState extends State<ExplorePage> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Text("New York"),
+        title: Text("Exlore offers around you"),
         backgroundColor: Colors.green,
         elevation: 0.0,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(FontAwesomeIcons.search),
-              onPressed: () {
-                //
-              }),
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //       icon: Icon(FontAwesomeIcons.search),
+        //       onPressed: () {
+        //         //
+        //       }),
+        // ],
       ),
       body: SingleChildScrollView(
         child: Container(
