@@ -156,9 +156,11 @@ class _HomePageState extends State<HomePage> {
                   right: 20.0,
                   bottom: 100.0,
                   child: IconButton(
-                      icon: displayIcon,
-                      onPressed: goAuthtication,
-                      highlightColor: null),
+                    icon: displayIcon,
+                    onPressed: goAuthtication,
+                    highlightColor: null,
+                    color: Colors.white,
+                  ),
                 ),
                 Positioned(
                   bottom: 90.0,

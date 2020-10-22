@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:super_card_client/constants.dart';
 
 class ExplorePage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class ExplorePageState extends State<ExplorePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Exlore offers around you"),
-        backgroundColor: Colors.green,
+        backgroundColor: Constants.kPrimaryColor,
         elevation: 0.0,
         // actions: <Widget>[
         //   IconButton(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'dart:ui' as ui;
 
 class transaction extends StatefulWidget {
   @override
@@ -111,7 +110,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "- 700 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                         Container(
@@ -133,7 +132,7 @@ class _transactionState extends State<transaction> {
                                   "+ 70",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 19, color: Colors.white),
+                                      fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -214,7 +213,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "- 480 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                         Container(
@@ -236,7 +235,7 @@ class _transactionState extends State<transaction> {
                                   "+ 48",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 19, color: Colors.white),
+                                      fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -318,7 +317,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "- 230 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                       ],
@@ -389,7 +388,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "+ 1,000 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                       ],
@@ -463,7 +462,7 @@ class _transactionState extends State<transaction> {
                           height: 5,
                         ),
                         Text(
-                          "Nike",
+                          "Noke",
                           style: TextStyle(fontSize: 20),
                         ),
                         SizedBox(
@@ -489,7 +488,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "- 630 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                         Container(
@@ -511,7 +510,7 @@ class _transactionState extends State<transaction> {
                                   "+ 63",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 19, color: Colors.white),
+                                      fontSize: 16, color: Colors.white),
                                 ),
                                 SizedBox(
                                   width: 5,
@@ -593,7 +592,7 @@ class _transactionState extends State<transaction> {
                           child: Text(
                             "+ 500 HKD",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 19),
+                            style: TextStyle(fontSize: 16),
                           ),
                         ),
                       ],

@@ -27,8 +27,8 @@ class _InsurancePageState extends State<InsurancePage> {
       appBar: AppBar(
         title: Text(
           'Insurance',
-          style: Theme.of(context).textTheme.subtitle1,
-          textScaleFactor: 1.5,
+          // style: Theme.of(context).textTheme.subtitle1,
+          // textScaleFactor: 1.3,
         ),
         centerTitle: true,
         elevation: 0.0,
@@ -42,8 +42,8 @@ class _InsurancePageState extends State<InsurancePage> {
           children: [
             Container(
               child: Text(
-              'My insurance',
-              style: Theme.of(context).textTheme.headline4,
+                'My insurance',
+                style: Theme.of(context).textTheme.headline4,
                 textScaleFactor: 0.8,
               ),
             ),
