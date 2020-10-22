@@ -152,6 +152,9 @@ class _cash_backState extends State<cash_back> {
   }
 
   showAlertDialog(BuildContext context) {
+    final snackBar = SnackBar(
+        backgroundColor: Constants.kPrimaryColor,
+        content: Text('Convert success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("No", style: TextStyle(fontSize: 20)),
@@ -165,6 +168,7 @@ class _cash_backState extends State<cash_back> {
         Navigator.of(context, rootNavigator: true).pop();
         UserData.accountBalance += tranValue;
         UserData.dollar -= posDollar;
+        Scaffold.of(context).showSnackBar(snackBar);
         Navigator.of(context)
             .push(
               new MaterialPageRoute(builder: (_) => new MainPage()),

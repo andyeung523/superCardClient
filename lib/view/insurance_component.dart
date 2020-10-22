@@ -13,9 +13,10 @@ import 'package:super_card_client/view/insurance_subPage/pay_page.dart';
 import 'package:super_card_client/view/insurance_subPage/subscribe_page.dart';
 
 class InsuranceSubedCard extends StatefulWidget {
-  InsuranceSubedCard({Key key, this.data}) : super(key: key);
+  InsuranceSubedCard({Key key, this.data, this.globalKey}) : super(key: key);
 
   final Insurance data;
+  GlobalKey<ScaffoldState> globalKey;
 
   @override
   _InsuranceSubedCardState createState() => _InsuranceSubedCardState();
@@ -27,11 +28,8 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(
-          Constants.kDefaultPadding,
-          Constants.kDefaultPadding,
-          Constants.kDefaultPadding,
-          0),
+      margin: EdgeInsets.fromLTRB(Constants.kDefaultPadding,
+          Constants.kDefaultPadding, Constants.kDefaultPadding, 0),
       padding: EdgeInsets.all(Constants.kDefaultPadding),
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -72,7 +70,7 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                         children: [
                           Text(
                             'Price: \$' + widget.data.price.toString(),
-                              style: Theme.of(context).textTheme.caption,
+                            style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
@@ -104,7 +102,9 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return PayPopUp(price: widget.data.price);
+                            return PayPopUp(
+                                price: widget.data.price,
+                                globalKey: widget.globalKey);
                           });
                     },
                     child: Text(
@@ -135,17 +135,22 @@ class _InsuranceNoSubedCardState extends State<InsuranceNoSubedCard> {
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.only(left: 15,right: 15),
+        padding: const EdgeInsets.only(left: 15, right: 15),
         child: ExpansionTile(
           tilePadding: EdgeInsets.zero,
-          title: Row(
-            children: [
-              Icon(MdiIcons.clipboardCheckMultipleOutline,
-              color: Constants.kTextColor,),
-              SizedBox(width: 5,),
-              Text(widget.data.name,
-                style: Theme.of(context).textTheme.headline6,
-              )]),
+          title: Row(children: [
+            Icon(
+              MdiIcons.clipboardCheckMultipleOutline,
+              color: Constants.kTextColor,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              widget.data.name,
+              style: Theme.of(context).textTheme.headline6,
+            )
+          ]),
           children: [
             Container(
               alignment: Alignment.centerLeft,

@@ -7,8 +7,12 @@ import 'package:super_card_client/data/insurance.dart';
 import 'package:super_card_client/view/main_page.dart';
 
 class subPopUp extends StatefulWidget {
-  subPopUp({Key key, this.data}) : super(key: key);
+  subPopUp({
+    Key key,
+    this.data,
+  }) : super(key: key);
   Insurance data;
+
   @override
   _subPopUpState createState() => _subPopUpState();
 }
@@ -156,6 +160,9 @@ class _subPopUpState extends State<subPopUp> {
   }
 
   showAlertDialog(BuildContext context, int idd) {
+    final snackBar = SnackBar(
+        backgroundColor: Constants.kPrimaryColor,
+        content: Text('Apply success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("No", style: Theme.of(context).textTheme.subtitle2),
@@ -166,6 +173,7 @@ class _subPopUpState extends State<subPopUp> {
     Widget continueButton = FlatButton(
       child: Text("Yes", style: Theme.of(context).textTheme.subtitle2),
       onPressed: () {
+        Scaffold.of(context).showSnackBar(snackBar);
         Navigator.of(context, rootNavigator: true).pop();
         toggleSub(context, idd);
       },
