@@ -63,7 +63,7 @@ class _PayPopUpState extends State<PayPopUp> {
                     children: [
                       Text(
                         'Premium Outstanding',
-                        style: TextStyle(color: Colors.black),
+                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                     ],
                   ),
@@ -71,10 +71,10 @@ class _PayPopUpState extends State<PayPopUp> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        '\$' + widget.price.toString(),
+                        '\$' + widget.price.toString()+".0",
                         style: TextStyle(
                             color: showHD
-                                ? Colors.black
+                                ? Constants.kTextColor
                                 : Constants.kPrimaryColor),
                       ),
                     ],
@@ -89,13 +89,13 @@ class _PayPopUpState extends State<PayPopUp> {
                                       ? widget.price / 0.05
                                       : UserData.dollar)
                                   .toString() +
-                              '(Health Dollar) x 5% = ' +
+                              '(Health Dollar) x 5% = \$' +
                               (UserData.dollar > widget.price / 0.05
                                       ? widget.price
                                       : (UserData.dollar * 0.05)
                                           .roundToDouble())
                                   .toString(),
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Constants.kTextColor),
                         ),
                       ],
                     ),
@@ -134,7 +134,7 @@ class _PayPopUpState extends State<PayPopUp> {
                                 setState(() => {showHD = true});
                               },
                               child: Text('Health Dollar',
-                                  style: TextStyle(fontSize: 11)),
+                                  style: Theme.of(context).textTheme.button),
                             ),
                           )
                         ],
@@ -147,7 +147,8 @@ class _PayPopUpState extends State<PayPopUp> {
                               onPressed: () {
                                 setState(() => {showHD = false});
                               },
-                              child: Text('Cash'),
+                              child: Text('Cash',
+                              style: Theme.of(context).textTheme.button,),
                             ),
                           )
                         ],
@@ -164,7 +165,7 @@ class _PayPopUpState extends State<PayPopUp> {
                           onPressed: () {
                             showAlertDialog(context);
                           },
-                          child: Text('PAY'),
+                          child: Text('PAY', style:TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14)),
                         ),
                       )
                     ],
@@ -195,16 +196,17 @@ class _PayPopUpState extends State<PayPopUp> {
   showAlertDialog(BuildContext context) {
     final snackBar = SnackBar(
         backgroundColor: Constants.kPrimaryColor,
-        content: Text('Success paid!', style: TextStyle(fontSize: 20)));
+        content: Text('Payment success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
-      child: Text("No", style: TextStyle(fontSize: 20)),
+      child: Text("No",style:TextStyle(color: Constants.kPrimaryColor, fontWeight: FontWeight.w800, fontSize: 14),
+      ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Yes", style: TextStyle(fontSize: 20)),
+      child: Text("Yes", style:TextStyle(color: Constants.kPrimaryColor, fontWeight: FontWeight.w800, fontSize: 14),),
       onPressed: () {
         updateHD(UserData.dollar > widget.price / 0.05
             ? widget.price / 0.05
@@ -218,8 +220,8 @@ class _PayPopUpState extends State<PayPopUp> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of the payment"),
-      content: Text("Are you sure to pay?", style: TextStyle(fontSize: 18)),
+      title: Text("Confirmation of payment",style: TextStyle(color: Constants.kTextColor)),
+      content: Text("Are you sure to pay?",style: TextStyle(color: Constants.kTextColor)),
       actions: [
         cancelButton,
         continueButton,

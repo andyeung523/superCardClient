@@ -444,7 +444,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          "Transaction",
+                          "History",
                           style: Theme.of(context).textTheme.caption,
                         )
                       ],
