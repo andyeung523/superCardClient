@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:super_card_client/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:super_card_client/view/Home_subPage/cash_back.dart';
-import 'dart:ui' as ui;
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:local_auth/local_auth.dart';
 
 import 'package:super_card_client/view/Home_subPage/transaction_page.dart';
 //import 'package:flutter;
@@ -17,20 +20,99 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var cardNo = 'XXXX-XXXX-XXXX-XXXX';
   var cardNoState = 0;
+  var expDate = 'XX/XX';
+  var cvv = 'XXX';
   var displayIcon = Icon(MdiIcons.eye);
+
+  final LocalAuthentication auth = LocalAuthentication();
+  bool _canCheckBiometrics;
+  List<BiometricType> _availableBiometrics;
+  String _authorized = 'Not Authorized';
+  bool _isAuthenticating = false;
+
+  Future<void> _checkBiometrics() async {
+    bool canCheckBiometrics;
+    try {
+      canCheckBiometrics = await auth.canCheckBiometrics;
+    } on PlatformException catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+
+    setState(() {
+      _canCheckBiometrics = canCheckBiometrics;
+    });
+  }
+
+  Future<void> _getAvailableBiometrics() async {
+    List<BiometricType> availableBiometrics;
+    try {
+      availableBiometrics = await auth.getAvailableBiometrics();
+    } on PlatformException catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+
+    setState(() {
+      _availableBiometrics = availableBiometrics;
+    });
+  }
+
+  Future<void> _authenticate() async {
+    bool authenticated = false;
+    try {
+      setState(() {
+        _isAuthenticating = true;
+        _authorized = 'Authenticating';
+      });
+      authenticated = await auth.authenticateWithBiometrics(
+          localizedReason: 'Scan your fingerprint to authenticate',
+          useErrorDialogs: true,
+          stickyAuth: true);
+      displayCardno();
+      setState(() {
+        _isAuthenticating = false;
+        _authorized = 'Authenticating';
+      });
+    } on PlatformException catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+
+    final String message = authenticated ? 'Authorized' : 'Not Authorized';
+    setState(() {
+      _authorized = message;
+    });
+  }
+
+  void _cancelAuthentication() {
+    auth.stopAuthentication();
+  }
 
   void displayCardno() {
     setState(() {
       if (cardNoState == 0) {
         cardNo = '1234-5678-1234-5678';
         displayIcon = Icon(MdiIcons.eye);
+        expDate = '10/25';
+        cvv = '123';
         cardNoState = 1;
       } else {
         cardNo = 'XXXX-XXXX-XXXX-XXXX';
         displayIcon = Icon(MdiIcons.eyeOff);
+        expDate = 'XX/XX';
+        cvv = 'XXX';
         cardNoState = 0;
       }
     });
+  }
+
+  Future<void> goAuthtication() {
+    if (cardNoState == 0) {
+      _isAuthenticating ? _cancelAuthentication() : _authenticate();
+    } else {
+      displayCardno();
+    }
   }
 
   @override
@@ -71,15 +153,23 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Image.asset('assets/images/sc_card_g.png'),
                 Positioned(
+                  right: 20.0,
                   bottom: 100.0,
+                  child: IconButton(
+                      icon: displayIcon,
+                      onPressed: goAuthtication,
+                      highlightColor: null),
+                ),
+                Positioned(
+                  bottom: 110.0,
                   left: 15.0,
                   child: Row(
                     children: [
                       Text(cardNo),
-                      IconButton(
-                          icon: displayIcon,
-                          onPressed: displayCardno,
-                          highlightColor: null)
+                      // IconButton(
+                      //     icon: displayIcon,
+                      //     onPressed: displayCardno,
+                      //     highlightColor: null)
                     ],
                   ),
                 ),
@@ -92,15 +182,18 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("VALID THRU"),
-                          Text("10/25"),
+                          Text(
+                            "VALID THRU",
+                          ),
+                          Text(expDate),
                         ],
                       ),
+                      SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("CVV"),
-                          Text("123"),
+                          Text(cvv),
                         ],
                       ),
                       // IconButton(
