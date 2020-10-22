@@ -16,6 +16,7 @@ class InsurancePage extends StatefulWidget {
 }
 
 class _InsurancePageState extends State<InsurancePage> {
+  final globalKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     refreshList(context);
@@ -24,6 +25,7 @@ class _InsurancePageState extends State<InsurancePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      key: globalKey,
       appBar: AppBar(
         title: Text(
           'Insurance',
@@ -115,7 +117,8 @@ class _InsurancePageState extends State<InsurancePage> {
         shrinkWrap: true,
         physics: ClampingScrollPhysics(),
         itemCount: list.length,
-        itemBuilder: (ctx, i) => InsuranceSubedCard(data: list[i]),
+        itemBuilder: (ctx, i) =>
+            InsuranceSubedCard(data: list[i], globalKey: globalKey),
       );
 
   void refreshList(BuildContext context) {

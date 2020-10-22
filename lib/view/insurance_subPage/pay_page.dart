@@ -5,8 +5,9 @@ import 'package:super_card_client/view/main_page.dart';
 import 'dart:developer';
 
 class PayPopUp extends StatefulWidget {
-  PayPopUp({Key key, this.price}) : super(key: key);
+  PayPopUp({Key key, this.price, this.globalKey}) : super(key: key);
   final int price;
+  GlobalKey<ScaffoldState> globalKey;
   @override
   _PayPopUpState createState() => _PayPopUpState();
 }
@@ -14,6 +15,7 @@ class PayPopUp extends StatefulWidget {
 class _PayPopUpState extends State<PayPopUp> {
   _getRequests() async {}
   bool showHD = true;
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -191,6 +193,9 @@ class _PayPopUpState extends State<PayPopUp> {
       };
 
   showAlertDialog(BuildContext context) {
+    final snackBar = SnackBar(
+        backgroundColor: Constants.kPrimaryColor,
+        content: Text('Success paid!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("No", style: TextStyle(fontSize: 20)),
@@ -205,6 +210,7 @@ class _PayPopUpState extends State<PayPopUp> {
             ? widget.price / 0.05
             : UserData.dollar);
         setState(() => {});
+        widget.globalKey.currentState.showSnackBar(snackBar);
         Navigator.of(context, rootNavigator: true).pop();
         Navigator.of(context, rootNavigator: true).pop();
       },

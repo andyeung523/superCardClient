@@ -7,8 +7,12 @@ import 'package:super_card_client/data/insurance.dart';
 import 'package:super_card_client/view/main_page.dart';
 
 class subPopUp extends StatefulWidget {
-  subPopUp({Key key, this.data}) : super(key: key);
+  subPopUp({
+    Key key,
+    this.data,
+  }) : super(key: key);
   Insurance data;
+
   @override
   _subPopUpState createState() => _subPopUpState();
 }
@@ -48,12 +52,46 @@ class _subPopUpState extends State<subPopUp> {
                   ))
                 ]),
                 Row(
-                  children: [Flexible(child:
-                  Text(widget.data.des,
-                    style: Theme.of(context).textTheme.caption,
-                  ))],
+                  children: [
+                    Flexible(
+                        child: Text(
+                      widget.data.des,
+                      style: Theme.of(context).textTheme.caption,
+                    ))
+                  ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        child: Table(
+                          defaultColumnWidth: FixedColumnWidth(100.0),
+                          border: TableBorder.all(
+                              color: Colors.black87,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          children: [
+                            TableRow(children: [
+                              Column(children: [Text('text 1')]),
+                              Column(children: [Text('text 1')]),
+                              Column(children: [Text('text 1')]),
+                            ]),
+                            TableRow(children: [
+                              Column(children: [Text('text 2')]),
+                              Column(children: [Text('text 2')]),
+                              Column(children: [Text('text 2')]),
+                            ])
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Row(
                   children: [
                     Flexible(
@@ -75,9 +113,11 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = true});
                       },
-                      child: Text('\$500,000',
-                          style: Theme.of(context).textTheme.button,
-                          textScaleFactor: 1.2,),
+                      child: Text(
+                        '\$500,000',
+                        style: Theme.of(context).textTheme.button,
+                        textScaleFactor: 1.2,
+                      ),
                     ),
                     RaisedButton(
                       color:
@@ -85,16 +125,14 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = false});
                       },
-                      child: Text('\$1,000,000',
-                          style: Theme.of(context).textTheme.button,
-                      textScaleFactor: 1.2,),
+                      child: Text(
+                        '\$1,000,000',
+                        style: Theme.of(context).textTheme.button,
+                        textScaleFactor: 1.2,
+                      ),
                     ),
                   ],
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [],
-                )
               ],
             ),
           ),
@@ -105,9 +143,11 @@ class _subPopUpState extends State<subPopUp> {
             child: RaisedButton(
               color: Constants.kSecondaryColor,
               onPressed: () => showAlertDialog(context, widget.data.id),
-              child: Text('Apply Now',
+              child: Text(
+                'Apply Now',
                 style: Theme.of(context).textTheme.button,
-                textScaleFactor: 1.2,),
+                textScaleFactor: 1.2,
+              ),
             ),
           ),
         ));
@@ -120,6 +160,9 @@ class _subPopUpState extends State<subPopUp> {
   }
 
   showAlertDialog(BuildContext context, int idd) {
+    final snackBar = SnackBar(
+        backgroundColor: Constants.kPrimaryColor,
+        content: Text('Apply success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("No", style: Theme.of(context).textTheme.subtitle2),
@@ -130,6 +173,7 @@ class _subPopUpState extends State<subPopUp> {
     Widget continueButton = FlatButton(
       child: Text("Yes", style: Theme.of(context).textTheme.subtitle2),
       onPressed: () {
+        Scaffold.of(context).showSnackBar(snackBar);
         Navigator.of(context, rootNavigator: true).pop();
         toggleSub(context, idd);
       },
@@ -137,10 +181,13 @@ class _subPopUpState extends State<subPopUp> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of application",
-      style: Theme.of(context).textTheme.headline5,
-      textScaleFactor: 0.8,),
-      content: Text("Are you sure to apply?", style: Theme.of(context).textTheme.caption),
+      title: Text(
+        "Confirmation of application",
+        style: Theme.of(context).textTheme.headline5,
+        textScaleFactor: 0.8,
+      ),
+      content: Text("Are you sure to apply?",
+          style: Theme.of(context).textTheme.caption),
       actions: [
         cancelButton,
         continueButton,
