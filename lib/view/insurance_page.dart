@@ -44,6 +44,7 @@ class _InsurancePageState extends State<InsurancePage> {
               child: Text(
               'My insurance',
               style: Theme.of(context).textTheme.headline4,
+                textScaleFactor: 0.8,
               ),
             ),
             BlocConsumer<InsuranceBloc, InsuranceState>(
@@ -66,6 +67,7 @@ class _InsurancePageState extends State<InsurancePage> {
               child: Text(
                 'Insurance list',
                 style: Theme.of(context).textTheme.headline4,
+                textScaleFactor: 0.8,
               ),
             ),
             BlocConsumer<InsuranceBloc, InsuranceState>(
