@@ -48,12 +48,17 @@ class _subPopUpState extends State<subPopUp> {
                   ))
                 ]),
                 Row(
-                  children: [Flexible(child:
-                  Text(widget.data.des,
-                    style: Theme.of(context).textTheme.caption,
-                  ))],
+                  children: [
+                    Flexible(
+                        child: Text(
+                      widget.data.des,
+                      style: Theme.of(context).textTheme.caption,
+                    ))
+                  ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
                     Flexible(
@@ -66,6 +71,35 @@ class _subPopUpState extends State<subPopUp> {
                     )),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        child: Table(
+                          defaultColumnWidth: FixedColumnWidth(100.0),
+                          border: TableBorder.all(
+                              color: Colors.black87,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          children: [
+                            TableRow(children: [
+                              Column(children: [Text('text 1')]),
+                              Column(children: [Text('text 1')]),
+                              Column(children: [Text('text 1')]),
+                            ]),
+                            TableRow(children: [
+                              Column(children: [Text('text 2')]),
+                              Column(children: [Text('text 2')]),
+                              Column(children: [Text('text 2')]),
+                            ])
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -75,9 +109,11 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = true});
                       },
-                      child: Text('\$500,000',
-                          style: Theme.of(context).textTheme.button,
-                          textScaleFactor: 1.2,),
+                      child: Text(
+                        '\$500,000',
+                        style: Theme.of(context).textTheme.button,
+                        textScaleFactor: 1.2,
+                      ),
                     ),
                     RaisedButton(
                       color:
@@ -85,16 +121,14 @@ class _subPopUpState extends State<subPopUp> {
                       onPressed: () {
                         setState(() => {isLeft = false});
                       },
-                      child: Text('\$1,000,000',
-                          style: Theme.of(context).textTheme.button,
-                      textScaleFactor: 1.2,),
+                      child: Text(
+                        '\$1,000,000',
+                        style: Theme.of(context).textTheme.button,
+                        textScaleFactor: 1.2,
+                      ),
                     ),
                   ],
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [],
-                )
               ],
             ),
           ),
@@ -105,9 +139,11 @@ class _subPopUpState extends State<subPopUp> {
             child: RaisedButton(
               color: Constants.kSecondaryColor,
               onPressed: () => showAlertDialog(context, widget.data.id),
-              child: Text('Apply Now',
+              child: Text(
+                'Apply Now',
                 style: Theme.of(context).textTheme.button,
-                textScaleFactor: 1.2,),
+                textScaleFactor: 1.2,
+              ),
             ),
           ),
         ));
@@ -137,10 +173,13 @@ class _subPopUpState extends State<subPopUp> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of application",
-      style: Theme.of(context).textTheme.headline5,
-      textScaleFactor: 0.8,),
-      content: Text("Are you sure to apply?", style: Theme.of(context).textTheme.caption),
+      title: Text(
+        "Confirmation of application",
+        style: Theme.of(context).textTheme.headline5,
+        textScaleFactor: 0.8,
+      ),
+      content: Text("Are you sure to apply?",
+          style: Theme.of(context).textTheme.caption),
       actions: [
         cancelButton,
         continueButton,

@@ -15,6 +15,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           // Define the default brightness and colors.
           scaffoldBackgroundColor: Constants.kBackgroundColor,
@@ -28,7 +29,10 @@ class MainPage extends StatelessWidget {
               headline6: TextStyle(color: Constants.kTextColor),
               caption: TextStyle(color: Constants.kTextColor, fontSize: 15),
               subtitle1: TextStyle(color: Colors.white),
-              subtitle2: TextStyle(color: Constants.kPrimaryColor, fontSize: 20, fontWeight: FontWeight.bold),
+              subtitle2: TextStyle(
+                  color: Constants.kPrimaryColor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
               button:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
               headline1: TextStyle(
