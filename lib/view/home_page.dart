@@ -209,7 +209,8 @@ class _HomePageState extends State<HomePage> {
                           size: 21.0,
                         ),
                         onPressed: () {
-                          Clipboard.setData(ClipboardData(text: "123"));
+                          Clipboard.setData(
+                              ClipboardData(text: "1234-5678-1234-5678"));
                         },
                         highlightColor: null,
                         color: Colors.white,
@@ -355,7 +356,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: 30,
+          height: 25,
         ),
         Center(
           child: Container(

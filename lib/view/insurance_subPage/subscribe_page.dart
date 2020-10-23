@@ -63,35 +63,35 @@ class _subPopUpState extends State<subPopUp> {
                 SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Table(
-                          defaultColumnWidth: FixedColumnWidth(100.0),
-                          border: TableBorder.all(
-                              color: Colors.black87,
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                          children: [
-                            TableRow(children: [
-                              Column(children: [Text('text 1')]),
-                              Column(children: [Text('text 1')]),
-                              Column(children: [Text('text 1')]),
-                            ]),
-                            TableRow(children: [
-                              Column(children: [Text('text 2')]),
-                              Column(children: [Text('text 2')]),
-                              Column(children: [Text('text 2')]),
-                            ])
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Flexible(
+                //         child: Table(
+                //           defaultColumnWidth: FixedColumnWidth(100.0),
+                //           border: TableBorder.all(
+                //               color: Colors.black87,
+                //               width: 2.0,
+                //               style: BorderStyle.solid),
+                //           children: [
+                //             TableRow(children: [
+                //               Column(children: [Text('text 1')]),
+                //               Column(children: [Text('text 1')]),
+                //               Column(children: [Text('text 1')]),
+                //             ]),
+                //             TableRow(children: [
+                //               Column(children: [Text('text 2')]),
+                //               Column(children: [Text('text 2')]),
+                //               Column(children: [Text('text 2')]),
+                //             ])
+                //           ],
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
                 Row(
                   children: [
                     Flexible(
