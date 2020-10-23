@@ -58,6 +58,15 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                           ),
                         ],
                       ),
+
+                      Row(
+                        children: [
+                          Text(
+                            'Status: ' + widget.data.status,
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      ),
                       Row(
                         children: [
                           Text(
@@ -70,6 +79,14 @@ class _InsuranceSubedCardState extends State<InsuranceSubedCard> {
                         children: [
                           Text(
                             'Price: \$' + widget.data.price.toString(),
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Coverage: \$500,000',
                             style: Theme.of(context).textTheme.caption,
                           ),
                         ],

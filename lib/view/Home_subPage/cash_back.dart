@@ -47,7 +47,6 @@ class _cash_backState extends State<cash_back> {
       backgroundColor: Colors.grey[200],
       body: Container(
         padding: EdgeInsets.only(left: 12, right: 12),
-        padding: EdgeInsets.only(left:12,right:12),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           if (UserData.dollar * Constants.cashBackRate >= 1)
@@ -161,8 +160,6 @@ class _cash_backState extends State<cash_back> {
       child: Text(
         "No",
         style: Theme.of(context).textTheme.subtitle2,
-      ),
-      child: Text("No",style: Theme.of(context).textTheme.subtitle2,
       ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
