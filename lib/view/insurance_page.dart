@@ -27,6 +27,7 @@ class _InsurancePageState extends State<InsurancePage> {
     return Scaffold(
       key: globalKey,
       appBar: AppBar(
+        brightness: Brightness.light,
         title: Text(
           'Insurance',
           // style: Theme.of(context).textTheme.subtitle1,
