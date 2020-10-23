@@ -63,6 +63,20 @@ class _subPopUpState extends State<subPopUp> {
                 SizedBox(
                   height: 10,
                 ),
+                Row(
+                  children: [
+                    Flexible(
+                        child: Text(
+                          '*Contact our Customer Service for more',
+                          style: Theme.of(context).textTheme.caption,
+                          textScaleFactor: 0.8,
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
                 // Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Row(
