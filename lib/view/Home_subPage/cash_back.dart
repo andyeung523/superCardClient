@@ -46,16 +46,15 @@ class _cash_backState extends State<cash_back> {
       ),
       backgroundColor: Colors.grey[200],
       body: Container(
-        padding: EdgeInsets.only(left:12,right:12),
+        padding: EdgeInsets.only(left: 12, right: 12),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           if (UserData.dollar * Constants.cashBackRate >= 1)
             Text(
               'How many Health Dollar do you want to convert into cash?',
-                style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.caption,
 
-        // ali: Alignment.center,
-
+              // ali: Alignment.center,
             ),
           if (UserData.dollar * Constants.cashBackRate >= 1)
             Center(
@@ -71,7 +70,8 @@ class _cash_backState extends State<cash_back> {
                     ),
                     Text(
                       posDollar.toString(),
-                      style: TextStyle(fontSize: 30, color: Constants.kTextColor),
+                      style:
+                          TextStyle(fontSize: 30, color: Constants.kTextColor),
                     )
                   ]),
                   SingleCircularSlider(
@@ -157,14 +157,18 @@ class _cash_backState extends State<cash_back> {
         content: Text('Convert success!', style: TextStyle(fontSize: 20)));
     // set up the buttons
     Widget cancelButton = FlatButton(
-      child: Text("No",style: Theme.of(context).textTheme.subtitle2,
+      child: Text(
+        "No",
+        style: Theme.of(context).textTheme.subtitle2,
       ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Yes", style: Theme.of(context).textTheme.subtitle2,
+      child: Text(
+        "Yes",
+        style: Theme.of(context).textTheme.subtitle2,
       ),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop();
@@ -181,10 +185,14 @@ class _cash_backState extends State<cash_back> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Confirmation of conversion",style: Theme.of(context).textTheme.headline5,
+      title: Text(
+        "Confirmation of conversion",
+        style: Theme.of(context).textTheme.headline5,
         textScaleFactor: 0.8,
       ),
-      content: Text("Are you sure to convert?",style: Theme.of(context).textTheme.caption,
+      content: Text(
+        "Are you sure to convert?",
+        style: Theme.of(context).textTheme.caption,
       ),
       actions: [
         cancelButton,

@@ -20,9 +20,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var cardNo = 'XXXX-XXXX-XXXX-XXXX';
   var cardNoState = 0;
+
+  var accountBalanceState = 0;
+  var accountBalance = "******";
+
   var expDate = 'XX/XX';
   var cvv = 'XXX';
   var displayIcon = Icon(MdiIcons.eye);
+  var displayIcon2 = Icon(MdiIcons.eye);
 
   final LocalAuthentication auth = LocalAuthentication();
   bool _canCheckBiometrics;
@@ -110,6 +115,22 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void displayAccountBalance() {
+    setState(() {
+      if (accountBalanceState == 0) {
+        displayIcon2 = Icon(MdiIcons.eye);
+        accountBalance = UserData.accountBalance.toString();
+
+        accountBalanceState = 1;
+      } else {
+        accountBalance = "******";
+        displayIcon2 = Icon(MdiIcons.eyeOff);
+
+        accountBalanceState = 0;
+      }
+    });
+  }
+
   Future<void> goAuthtication() {
     if (cardNoState == 0) {
       _isAuthenticating ? _cancelAuthentication() : _authenticate();
@@ -177,11 +198,22 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
-                              fontWeight: FontWeight.bold))
-                      // IconButton(
-                      //     icon: displayIcon,
-                      //     onPressed: displayCardno,
-                      //     highlightColor: null)
+                              fontWeight: FontWeight.bold)),
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      IconButton(
+                        icon: Icon(
+                          MdiIcons.contentCopy,
+                          color: Colors.white,
+                          size: 21.0,
+                        ),
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: "123"));
+                        },
+                        highlightColor: null,
+                        color: Colors.white,
+                      ),
                     ],
                   ),
                 ),
@@ -224,50 +256,35 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      // IconButton(
-                      //     icon: displayIcon,
-                      //     onPressed: displayCardno,
-                      //     highlightColor: null)
                     ],
                   ),
                 )
               ],
             ),
           ),
-          // Container(
-          //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-          //   //margin: EdgeInsets.only(top: 50.0, left: 120.0), //容器外填充
-          //   constraints:
-          //       BoxConstraints.tightFor(width: 370.0, height: 226), //卡片大小
-          //   decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.all(Radius.circular(12)),
-          //       //背景装饰
-          //       gradient: LinearGradient(
-          //         //背景径向渐变
-          //         colors: [Colors.green, Colors.green[300]],
-          //         //center: Alignment.centerLeft,
-          //         //radius: .98
-          //       ),
-          //       boxShadow: [
-          //         //卡片阴影
-          //         BoxShadow(
-          //             color: Colors.black54,
-          //             offset: Offset(2.0, 2.0),
-          //             blurRadius: 4.0)
-          //       ]),
-          // ),
         ),
-        SizedBox(height: 15),
+        // SizedBox(height: 5),
         Container(
           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           // color: Colors.grey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Account Balance',
-                style: Theme.of(context).textTheme.bodyText2,
-                textAlign: TextAlign.left,
+              Row(
+                children: [
+                  Text(
+                    'Account Balance',
+                    style: Theme.of(context).textTheme.bodyText2,
+                    textAlign: TextAlign.left,
+                  ),
+                  // SizedBox(width: 10),
+                  IconButton(
+                    icon: displayIcon2,
+                    onPressed: displayAccountBalance,
+                    color: Colors.black,
+                    // highlightColor: Colors.white,
+                  ),
+                ],
               ),
               Text.rich(
                 TextSpan(
@@ -278,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                       alignment: PlaceholderAlignment.middle,
                       // baseline: TextBaseline.alphabetic,
                       child: Text(
-                        UserData.accountBalance.toString(),
+                        accountBalance,
                         style: Theme.of(context).textTheme.headline4,
                         textAlign: TextAlign.left,
                       ),
