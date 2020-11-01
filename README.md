@@ -1,6 +1,13 @@
+
+
+
 # super_card_client
 
-A new Flutter project.
+A Flutter project for the Tecent Fittech competition.
+![Home page] (http://url/to/img.png)
+![slider function] (https://github.com/andyeung523/superCardClient/blob/master/assets/images/UI_slider.png)
+
+
 
 ## Getting Started
 
