@@ -4,8 +4,8 @@
 # super_card_client
 
 A Flutter project for the Tecent Fittech competition.
-![Home page] (http://url/to/img.png)
-![slider function] (https://github.com/andyeung523/superCardClient/blob/master/assets/images/UI_slider.png)
+![Home page] (http://url/to/img.png?raw=true)
+![slider function] (https://github.com/andyeung523/superCardClient/blob/master/assets/images/UI_slider.png?raw=true)
 
 
 
